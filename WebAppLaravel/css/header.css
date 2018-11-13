@@ -1,0 +1,31 @@
+/*
+    Header
+*/
+
+#banner #logo img {
+    margin-left: 30%;
+    height: 140px;
+}
+
+#banner #slogan {
+    font-size: 30px;
+    font-weight: bold;
+    color: #005380;
+    margin-top: 50px;
+}
+
+#communicate span {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin-top: 70px;
+}
+
+#communicate img {
+    height: 54px;
+    border: 4px solid transparent;
+}
+
+#communicate img:hover {
+    border: none;
+}

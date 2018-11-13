@@ -1,0 +1,95 @@
+.carousel-inner {
+  border-radius: 10px;
+  margin: 10px;
+
+}
+
+.carousel-caption {
+  text-align: left;
+  left: 5%;
+}
+.tableInformation{
+	width:900px;
+	height:300px;
+	font-size:18px;
+ }
+  
+.registerinfor-sec {
+  padding: 30px 40px;
+  margin-left:65px;
+  position: relative;
+}
+
+.registerinfor-sec .copy-text {
+  position: absolute;
+  width: 80%;
+  bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.registerinfor-sec .copy-text i {
+  color: #FEB58A;
+}
+
+.registerinfor-sec .copy-text a {
+  color: #E36262;
+}
+
+.registerinfor-sec h2 {
+  margin-bottom: 30px;
+  font-weight: 800;
+  font-size: 30px;
+  color: #DE6262;
+}
+
+.registerinfor-sec h2:after {
+  content: " ";
+  width: 100px;
+  height: 5px;
+  background: #FEB58A;
+  display: block;
+  margin-top: 20px;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.btn-registerinfor {	
+  background: #DE6262;
+  color: #fff;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.banner-text {
+  width: 70%;
+  position: absolute;
+  bottom: 40px;
+  padding-left: 20px;
+}
+
+.banner-text h2 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.banner-text h2:after {
+  content: " ";
+  width: 100px;
+  height: 5px;
+  background: #FFF;
+  display: block;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+
+.banner-text p {
+  color: #fff;
+}
+
+
+#registerinfor_button {
+  font-family: 'Times New Roman', Times, serif;
+}
+

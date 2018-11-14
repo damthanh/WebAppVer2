@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         $rule = [
             'email' => 'required|email',
-            'password' => 'required|min:8'
+            'password' => 'required|min:6'
         ];
         $message = [
             'password.min' => 'Mat khau phai chua 8 ki tu',

@@ -44,6 +44,12 @@ Route::get('listStudent','ListStudentController@getListStudent');
 
 Route::get('report','ReportController@getReport');
 
+Route::get('register','RegisterController@getRegister');
+
+Route::post('register','RegisterController@postRegister');
+
+Route::get('work','WorkController@getWork');
+
 // Route::group(['prefix'=>'admin'],function(){
 //     Route::get('test',function(){
 //         return 'done';

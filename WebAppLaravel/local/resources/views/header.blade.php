@@ -15,7 +15,7 @@
                 
                 <div class="login_register">
                     <a href="login">Login</a>
-                    <a href="/register">Register</a>
+                    <a href="register">Register</a>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -25,7 +25,7 @@
 <header>
 <div id="banner">
     <a href="" class="gotohome">
-        <div id='logo' class="float-left col-sm-2"><img src="{{asset('svg/UET.jpg')}}" height="140px" width="140px" /></div>
+        <div id='logo' class="float-left col-sm-2"><img src="{{asset('images/UET.jpg')}}" height="140px" width="140px" /></div>
     </a>
     <a href="" class="gotohome">
         <div id="slogan" class="float-left col-sm-10" style="font-family: 'Times New Roman'">TRANG CỰU SINH VIÊN ĐẠI HỌC

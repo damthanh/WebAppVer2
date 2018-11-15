@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
+use App\Lichsu;
+
 
 class HistoryController extends Controller
 {
@@ -14,6 +16,7 @@ class HistoryController extends Controller
     }
 
     public function getHistory(){
-        return view('history');
+        $lichsu = Lichsu::where('user_id','=',Auth::user()->id)->get();
+        return view('history',['lichsu'=>$lichsu]);
     }
 }

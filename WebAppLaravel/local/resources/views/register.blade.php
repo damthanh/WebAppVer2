@@ -1,6 +1,6 @@
 @extends('master')
 @section('title')
-	<title> Register </title>
+	<title> Đăng kí thành viên </title>
 @stop
 
 @section('head')
@@ -12,7 +12,7 @@
 @stop
 @section('content')
 <div class="col-md-5 register-sec">
-					<h1 class="text-center">Register</h1>
+					<h1 class="text-center">Đăng kí thành viên</h1>
 
 					<br>
 					<form class="login-form" id="register-form" method="post"  name="register-form">
@@ -40,7 +40,7 @@
 						</div>
 			
 					
-							<button type="submit"  class="btn btn-login float-right">Register</button></a>
+							<button type="submit"  class="btn btn-login float-right">Đăng kí</button></a>
 					</form>
 					
 				

@@ -6,7 +6,7 @@
     </head>
     <body>
         @yield('header')
-        <div class="body-wrapper">
+        <div class="body-wrapper" style="">
             @yield('content')
         </div>
         @yield('footer')

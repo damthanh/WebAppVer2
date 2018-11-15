@@ -1,23 +1,27 @@
 <div class="topheader">
     <div class="outer">
         <div class="inner">
-            <div class="topleftmenu">
-                <a target="_top" href="">Trang chủ</a>
+            <div class="topleftmenu" style="width:1300px;">
+                <a target="_top" href="home">Trang chủ</a>
                 <span class="infoBox" id="information">
-                    <a class="info-choose" id="information-choose" target="_top" href="">Giới thiệu</a>
+                    <a class="info-choose" id="information-choose" target="_top" href="information">Thông tin cá nhân</a>
                 </span>
-                <a target="_top" href="/">Thông tin cá nhân</a>
-                <a target="_top" href="/">Kết nối cựu sinh viên</a>
+                <a target="_top" href="listStudent">Danh sách cựu sinh viên</a>
+                <a target="_top" href="work">Quá trình công tác</a>
                
-                <a target="_top" href="/history">Lịch sử truy cập</a>
+                <a target="_top" href="history">Lịch sử truy cập</a>
+                <a target="_top" href="report">Thống kê</a>
+            
+          
+                @if(Auth::check())
+                <a target="_top" href="information">{{Auth::user()->email}}</a>
+                <a target=_top href="{{url('logout')}}">Đăng xuất</a>
+                @else
+                <a target="_top" href="login">Đăng nhập</a>
+                <a target=_top href="register">Đăng kí</a>
+                @endif
             </div>
-            <div class="toprightmenu">
-                
-                <div class="login_register">
-                    <a href="login">Login</a>
-                    <a href="register">Register</a>
-                </div>
-                <div class="clear"></div>
+               
             </div>
         </div>
     </div>

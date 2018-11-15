@@ -11,6 +11,10 @@ use DB;
 use App\http\Requests;
 use App\User;
 use Illuminate\Support\MessageBag;
+use RegisterInformationController;
+use App\Lop;
+use App\Khoahoc;
+use App\Csv;
 
 class AuthController extends Controller
 {
@@ -39,8 +43,11 @@ class AuthController extends Controller
                 if($row->email==$email && $row->password==$password){
                     $tmpuser=User::find($row->id);
                     Auth::login($tmpuser);
-                    // return view('registerInformation');
-                    return redirect()->intended('/');
+                    $lop=Lop::all();
+                    $khoahoc=Khoahoc::all();
+                    $csv=Csv::where('user_id','=',Auth::user()->id)->first();
+                    return view('registerInformation',['lop'=>$lop,'khoahoc'=>$khoahoc,'csv'=>$csv]);
+                    // return RegisterInformationController::getInformation();
                 }
             }
             $errors = new MessageBag(['errorlogin' => 'Email hoac mat khau khong dung']);

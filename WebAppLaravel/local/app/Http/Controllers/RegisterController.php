@@ -12,6 +12,7 @@ use App\http\Requests;
 use App\User;
 use Illuminate\Support\MessageBag;
 use Carbon\Carbon;
+use App\Lichsu;
 
 class RegisterController extends Controller
 {
@@ -43,11 +44,9 @@ class RegisterController extends Controller
             Auth::login($tmpUser);
         }
         DB::table('lichsu')->insert(
-            ['user_id' => Auth::user()->id, 'function_id' => 1, 'action' => 'dang ki tai khoan thanh cong']
+            ['user_id' => Auth::user()->id, 'function_id' => 1,'time'=>Carbon::now(), 'action' => 'Dang ki tai khoan thanh cong']
         );
-        // return Auth::user()->email;
-        // $tmpUser=User::find($newUser->id);
-        // Auth::login($tmpUser);
+        $request->session()->flash('status','Dang ki tai khoan thanh cong');
         return redirect('information');
     }
 }

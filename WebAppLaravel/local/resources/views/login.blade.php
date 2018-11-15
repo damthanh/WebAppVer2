@@ -35,16 +35,14 @@
 								<p style="color:red">{{$errors->first('password')}}</p>
 							@endif
 						</div>
-						 <div class="checkbox">
-							<label><input type="checkbox"> Remember me</label>
-						 </div>
+						 
 						<div class="form-check">
 							<button type="submit"  margin-top=0px class="btn btn-login float-right">Sign In</button>
 						</div>
 					</form>
 					<div>
 					<a id="fogot_password_link" href="">Fogot Password ?</a>
-					<button type="button" class="btn btn-login">Sign Up</button>
+					<a href="register"><button type="button" class="btn btn-login" >Sign Up</button></a>
 					</div>
     </div>
 	<div class="col-md-8 banner-sec">

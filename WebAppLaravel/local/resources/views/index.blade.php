@@ -23,13 +23,13 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
-                        <img data-src="holder.js/1004x500/auto/#777:#555/text:First slide" src="{{asset('images/UET.jpg')}}" width=1090px height=400px alt="First slide">
+                        <img data-src="holder.js/1004x500/auto/#777:#555/text:First slide" src="{{asset('images/image4.jpg')}}" width=1090px height=400px alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img data-src="holder.js/1004x500/auto/#666:#444/text:Second slide" src="{{asset('images/FITUET.png')}}" width=1090px height=400px alt="Second slide">
+                        <img data-src="holder.js/1004x500/auto/#666:#444/text:Second slide" src="{{asset('images/image7.jpg')}}" width=1090px height=400px alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img data-src="holder.js/1004x500/auto/#666:#444/text:Third slide" src="{{asset('images/FETUET.jpg')}}" width=1090px height=400px alt="Third slide">
+                        <img data-src="holder.js/1004x500/auto/#666:#444/text:Third slide" src="{{asset('images/image8.jpg')}}" width=1090px height=400px alt="Third slide">
 					</div>
 					<!-- <div class="carousel-item">
                         <img data-src="holder.js/1004x500/auto/#666:#444/text:Third slide" src="images/carousel/4.jpg" width=1004px height=400px alt="Fourth slide">

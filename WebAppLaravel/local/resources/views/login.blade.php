@@ -54,7 +54,7 @@
 						</ol>
 						<div class="carousel-inner" role="listx`box">
 							<div class="carousel-item active">
-								<img class="d-block img-fluid" src="{{asset('images/UET.jpg')}}" alt="First slide">
+								<img class="d-block img-fluid" src="{{asset('images/image2.jpg')}}" alt="First slide" style="width:100%">
 								<!-- <div class="carousel-caption d-none d-md-block">
 												<div class="banner-text">
 													<h2>This is Heaven</h2>
@@ -63,7 +63,7 @@
 			 								</div> -->
 							</div>
 							<div class="carousel-item">
-								<img class="d-block img-fluid" src="{{asset('images/FITUET.png')}}" alt="First slide">
+								<img class="d-block img-fluid" src="{{asset('images/image1.jpg')}}" alt="First slide" style="width:100%">
 								<!-- <div class="carousel-caption d-none d-md-block">
 												<div class="banner-text">
 													<h2>This is Heaven</h2>
@@ -72,7 +72,7 @@
 											</div> -->
 							</div>
 							<div class="carousel-item">
-								<img class="d-block img-fluid" src="{{asset('images/FETUET.jpg')}}" alt="First slide">
+								<img class="d-block img-fluid" src="{{asset('images/image3.jpg')}}" alt="First slide"style="width:100%">
 								<!-- <div class="carousel-caption d-none d-md-block">
 												<div class="banner-text">
 													<h2>This is Heaven</h2>

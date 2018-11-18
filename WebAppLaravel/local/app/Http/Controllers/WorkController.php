@@ -31,19 +31,22 @@ class WorkController extends Controller
             $thoigian = $request->input('thoigian');
             $vitri = $request->input('vitri');
             $mucluong = $request->input('mucluong');
-            
+            $coquan_id = $request->input('coquanid');
             if($option=='Edit'){
                 Congtac::where('id','=',$request->id)->update([
                     'thoigian'=>$thoigian,
                     'vitri'=>$vitri,
-                    'mucluong'=>$mucluong
+                    'mucluong'=>$mucluong,
+                    'coquan_id'=>$coquan_id   
                 ]);
                 Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>2,'time'=>Carbon::now(),'action'=>'Sua noi cong tac']); 
                 $request->session()->flash('status','Cap nhat thanh cong');
-            }else{
+            }else if($option=='Delete'){
                 Congtac::where('id','=',$request->id)->delete();
                 Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>3,'time'=>Carbon::now(),'action'=>'Xoa noi cong tac']);
                 $request->session()->flash('status','Xoa thanh cong'); 
+            }else {
+                $request->session()->flash('err','Ban phai chon vao sua hoac xoa truoc khi an cap nhat'); 
             }
         }else{
             $coquan_id=$request->input('coquan');

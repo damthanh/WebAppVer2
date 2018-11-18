@@ -17,6 +17,9 @@
 @if (session('status'))
         <div class="alert alert-info">{{session('status')}}</div>
 @endif
+@if (session('err'))
+        <div class="alert alert-danger">{{session('err')}}</div>
+@endif
 <h1 class="text-center">Quá trình công tác</h1>
 <table class="table table-striped table-bordered table-hover" id="dataTables-example" width="1000px">                 
                     <tr>
@@ -41,11 +44,21 @@
                         <input type="hidden" name="id" value="{{$row->id}}" />
                         <tr class="odd gradeX" align="center">
                             <td><input type="text" style="width:100px;" name="thoigian" value="{{$row->thoigian}}"/></td>
-                            <td><input type="text" style="width:100px;" name="ten" value="{{$row->ten}}"/></td>
+                            <td>
+                            <select name="coquanid">
+                            @foreach($coquan as $row1)
+                                @if($row1->ten==$row->ten)
+                                    <option value="{{$row1->id}}" selected="selected">{{$row1->ten}}</option>
+                                @else
+                                    <option value="{{$row1->id}}" >{{$row1->ten}}</option>
+                                @endif
+                            @endforeach
+                            </select>
+                            </td>
                             <td><input type="text" style="width:100px;" name="diachi" value="{{$row->diachi}}"/></td>
                             <td><input type="text" style="width:100px;" name="vitri" value="{{$row->vitri}}"></td>
                             <td><input type="text" style="width:100px;" name="mucluong" value="{{$row->mucluong}}"></td>
-                            <td><input type="text" style="width:100px;" name="loaihinh" value="{{$row->loaihinh}}"/></td>
+                            <td>{{$row->loaihinh}}</td>
                             <td class="center"><input type="radio" name="option" value="Edit"/></td>
                             <td class="center"><input type="radio" name="option" value="Delete"/></td>
                             <td class="center"><button type="submit" value="Cập nhật" class="btn btn-registerinfor">Cập nhật</button> </td>
@@ -75,12 +88,15 @@
                         </tr> -->
                         <tr class="form-group">
                             <td style="width: 200px;">Nơi công tác :</td>
-                            <td colspan="3">
+                            <td colspan="2">
                                 <select name="coquan">
                                     @foreach($coquan as $row)
                                         <option value="{{$row->id}}">{{$row->ten}}</option>
                                     @endforeach
                                 </select>
+                            </td>
+                            <td>
+                            <a href='coquan'><button type="button" value="Cập nhật" class="btn btn-registerinfor">Thêm cơ quan mới</button> </a> 
                             </td>
                         </tr>
                         <tr >

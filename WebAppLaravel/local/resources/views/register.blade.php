@@ -69,8 +69,8 @@
 				var repass=$.trim($('#retypepass').val());
 				flag=true;
 
-				if(pass.length<6){
-					$('#passerr').text('Mat khau phai lon hon hoac bang 6 ki tu');
+				if(pass.length<8){
+					$('#passerr').text('Mat khau phai lon hon hoac bang 8 ki tu');
 					flag=false;
 				} 
 				return flag;

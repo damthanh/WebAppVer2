@@ -63,6 +63,7 @@ class RegisterInformationController extends Controller
         User::where('id','=',Auth::user()->id)->update([
             'name'=>$ten
         ]);
+        $request->session()->flash('status','Cap nhap thong tin ca nhan thanh cong'); 
         return redirect('information');
     }
 }

@@ -11,7 +11,14 @@
                
                 <a target="_top" href="history">Lịch sử truy cập</a>
                 <a target="_top" href="report">Thống kê</a>
-                <a target="_top" href="information">{{Auth::user()->email}}</a>
+                <a class="dropdown" style="text-align:center">
+                    <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="background-color: #268dc9">
+                        <li><a href="changePass" style="padding-top:0px; ">Đổi mật khẩu</a></li>
+                       
+                    </ul>
+                
+                </a>
                 <a target="_top" href="{{url('logout')}}">Đăng xuất</a> 
                 <!-- <div class="toprightmenu">
                 

@@ -18,7 +18,7 @@
 @if (session('status'))
         <div class="alert alert-info">{{session('status')}}</div>
 @endif
-		<h1 class="text-center">Person Information</h1>
+		<h1 class="text-center">Thông tin cá nhân</h1>
 		
             <form class="login-form" action=""  name="dangkycuusinhvien" enctype="multipart/form-data" method="post"  accept-charset="utf-8">  
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

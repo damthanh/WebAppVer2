@@ -18,6 +18,10 @@ use App\Csv;
 
 class AuthController extends Controller
 {
+    public function __construct(){
+        $this->middleware('guest');
+    }
+
     public function getLogin(){
         return view('login');
     }
@@ -27,7 +31,7 @@ class AuthController extends Controller
 
         $rule = [
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:8'
         ];
         $message = [
             'password.min' => 'Mat khau phai chua 8 ki tu',
@@ -46,7 +50,7 @@ class AuthController extends Controller
                     $lop=Lop::all();
                     $khoahoc=Khoahoc::all();
                     $csv=Csv::where('user_id','=',Auth::user()->id)->first();
-                    return view('registerInformation',['lop'=>$lop,'khoahoc'=>$khoahoc,'csv'=>$csv]);
+                    return redirect('home');
                     // return RegisterInformationController::getInformation();
                 }
             }

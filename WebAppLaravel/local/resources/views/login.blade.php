@@ -6,9 +6,9 @@
 	@include('header')
 @stop
 @section('content')
-<div class="container">
-<div class="row">	
-<div class="col-md-4 login-sec" >
+
+	
+<div class="col-md-5 register-sec" >
 					<h1 class="text-center">Login</h1>
 					<br>
 					<form class="login-form" action="" method="post">
@@ -23,7 +23,7 @@
 							<label for="exampleInputEmail1" class="text-uppercase">Email:</label>
 							<input type="email" class="form-control" placeholder="" name="email" required>
 							@if($errors->has('email'))
-							123
+							
 								<p style="color:red">{{$errors->first('email')}}</p>
 							@endif
 						</div>
@@ -31,7 +31,7 @@
 							<label for="exampleInputPassword1" class="text-uppercase">Password:</label>
 							<input type="password" class="form-control" placeholder="" name="password" required>
 							@if($errors->has('password'))
-							124
+						
 								<p style="color:red">{{$errors->first('password')}}</p>
 							@endif
 						</div>
@@ -41,50 +41,35 @@
 						</div>
 					</form>
 					<div>
-					<a id="fogot_password_link" href="">Fogot Password ?</a>
+					<!-- <a id="fogot_password_link" href="">Fogot Password ?</a> -->
 					<a href="register"><button type="button" class="btn btn-login" >Sign Up</button></a>
 					</div>
     </div>
-	<div class="col-md-8 banner-sec">
+	<!-- <div class="col-md-8 banner-sec">
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 						</ol>
-						<div class="carousel-inner" role="listx`box">
-							<div class="carousel-item active">
-								<img class="d-block img-fluid" src="{{asset('images/image2.jpg')}}" alt="First slide" style="width:100%">
-								<!-- <div class="carousel-caption d-none d-md-block">
-												<div class="banner-text">
-													<h2>This is Heaven</h2>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-												</div>	
-			 								</div> -->
+						<div class="carousel-inner" role="listbox">
+							<div class="carousel-item active" style="width=730px; height=380px">
+								<img class="d-block img-fluid" src="{{asset('images/dhqg.jpeg')}}" alt="First slide" style="width=730px; height=380px">
+								
 							</div>
 							<div class="carousel-item">
-								<img class="d-block img-fluid" src="{{asset('images/image1.jpg')}}" alt="First slide" style="width:100%">
-								<!-- <div class="carousel-caption d-none d-md-block">
-												<div class="banner-text">
-													<h2>This is Heaven</h2>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-												</div>	
-											</div> -->
+								<img class="d-block img-fluid" src="{{asset('images/dhqg2.jpeg')}}" alt="First slide">
+								
 							</div>
 							<div class="carousel-item">
-								<img class="d-block img-fluid" src="{{asset('images/image3.jpg')}}" alt="First slide"style="width:100%">
-								<!-- <div class="carousel-caption d-none d-md-block">
-												<div class="banner-text">
-													<h2>This is Heaven</h2>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-												</div>	
-											</div> -->
+								<img class="d-block img-fluid" src="{{asset('images/test.png')}}" alt="First slide">
+								
 							</div>
 						</div>
 					</div>
-		</div>
-</div>
-</div>	
+		</div> -->
+
+	
 @stop
 
 @section('footer')

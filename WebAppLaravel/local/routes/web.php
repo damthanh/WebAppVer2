@@ -38,6 +38,8 @@ Route::get('home','IndexController@getIndex');
 
 Route::get('information','RegisterInformationController@getInformation');
 
+Route::post('information','RegisterInformationController@postInformation');
+
 Route::get('history','HistoryController@getHistory');
 
 Route::get('listStudent','ListStudentController@getListStudent');
@@ -50,14 +52,19 @@ Route::post('register','RegisterController@postRegister');
 
 Route::get('work','WorkController@getWork');
 
-// Route::group(['prefix'=>'admin'],function(){
-//     Route::get('test',function(){
-//         return 'done';
-//     });
-// });
+Route::post('work','WorkController@postWork');
 
-// Route::middleware(['web'])->get('Session',function(){
-   
-        
-   
-// });
+Route::get('lop','ClassController@getLop');
+
+Route::get('lop','ClassController@postLop');
+
+Route::get('coquan','CompanyController@getCompany');
+
+Route::post('coquan','CompanyController@postCompany');
+
+Route::get('','IndexController@getIndex');
+
+Route::get('changePass','ChangePassController@getChangePass');
+
+Route::post('changePass','ChangePassController@postChangePass');
+

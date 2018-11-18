@@ -16,7 +16,7 @@ class HistoryController extends Controller
     }
 
     public function getHistory(){
-        $lichsu = Lichsu::where('user_id','=',Auth::user()->id)->get();
+        $lichsu = Lichsu::where('user_id','=',Auth::user()->id)->orderBy('time','desc')->get();
         return view('history',['lichsu'=>$lichsu]);
     }
 }

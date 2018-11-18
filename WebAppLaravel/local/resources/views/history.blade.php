@@ -14,7 +14,7 @@
 
 @section('content')
 <div class="col-md-10 registerinfor-sec">
-    <h1 class="text-center">Quá trình công tác</h1>
+    <h1 class="text-center">Lịch sử truy cập</h1>
     <table class="table table-striped table-bordered table-hover" id="dataTables-example" width="1000px">                 
                         <tr>
                             

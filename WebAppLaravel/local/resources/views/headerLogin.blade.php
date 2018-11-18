@@ -4,12 +4,12 @@
             <div class="topleftmenu" style="width:1200px;">
                 <a target="_top" href="home">Trang chủ</a>
                 <span class="infoBox" id="information">
-                    <a class="info-choose" id="information-choose" target="_top" href="{{url('information')}}">Thông tin cá nhân</a>
+                    <a class="info-choose" id="information-choose" target="_top" href="{{url('information')}}">Hồ sơ cá nhân</a>
                 </span>
-                <a target="_top" href="listStudent">Danh sách cựu sinh viên</a>
+                <a target="_top" href="listStudent">Kết nối cựu sinh viên</a>
                 <a target="_top" href="{{url('work')}}">Quá trình công tác</a>
-               
-                <a target="_top" href="history">Lịch sử truy cập</a>
+                <a target="_top" href="khaosat">Khảo sát</a>
+                <a target="_top" href="history">Lịch sử </a>
                 <a target="_top" href="report">Thống kê</a>
                 <a class="dropdown" style="text-align:center">
                     <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}}<span class="caret"></span></a>

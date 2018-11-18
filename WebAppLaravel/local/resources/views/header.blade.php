@@ -4,12 +4,12 @@
             <div class="topleftmenu" style="width:1300px;">
                 <a target="_top" href="home">Trang chủ</a>
                 <span class="infoBox" id="information">
-                    <a class="info-choose" id="information-choose" target="_top" href="information">Thông tin cá nhân</a>
+                    <a class="info-choose" id="information-choose" target="_top" href="information">Hồ sơ cá nhân</a>
                 </span>
-                <a target="_top" href="listStudent">Danh sách cựu sinh viên</a>
+                <a target="_top" href="listStudent">Kết nối cựu sinh viên</a>
                 <a target="_top" href="work">Quá trình công tác</a>
-               
-                <a target="_top" href="history">Lịch sử truy cập</a>
+                <a target="_top" href="khaosat">Khảo sát</a>
+                <a target="_top" href="history">Lịch sử </a>
                 <a target="_top" href="report">Thống kê</a>
             
           

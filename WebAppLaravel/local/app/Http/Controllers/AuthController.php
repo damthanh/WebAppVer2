@@ -29,18 +29,8 @@ class AuthController extends Controller
     public function login(Request $request){
         $user = DB::table('users')->get();
 
-        $rule = [
-            'email' => 'required|email',
-            'password' => 'required|min:8'
-        ];
-        $message = [
-            'password.min' => 'Mat khau phai chua 8 ki tu',
-        ];
-        $validator = Validator::make($request->all(), $rule, $message);
-        if($validator->fails()){
-            
-            return redirect()->back()->withError($validator)->withInput();
-        }else{
+        
+        
             $email = $request->input('email');
             $password = $request->input('password');
             foreach($user as $row){
@@ -57,6 +47,6 @@ class AuthController extends Controller
             $errors = new MessageBag(['errorlogin' => 'Email hoac mat khau khong dung']);
             return redirect()->back()->withInput()->withErrors($errors);
             
-        }    
+            
     }
 }

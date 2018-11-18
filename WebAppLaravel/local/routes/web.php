@@ -68,3 +68,6 @@ Route::get('changePass','ChangePassController@getChangePass');
 
 Route::post('changePass','ChangePassController@postChangePass');
 
+Route::get('khaosat','KhaosatController@getKhaosat');
+
+Route::post('khaosat','KhaosatController@postKhaosat');

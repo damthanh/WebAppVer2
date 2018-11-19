@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2018 at 01:20 PM
+-- Generation Time: Nov 18, 2018 at 03:17 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -32,20 +32,25 @@ USE `cuusinhvien`;
 --
 
 CREATE TABLE `congtac` (
+  `id` int(10) UNSIGNED NOT NULL,
   `csv_id` int(11) NOT NULL,
   `thoigian` text NOT NULL,
   `coquan_id` int(11) NOT NULL,
   `vitri` varchar(255) NOT NULL,
-  `mucluong` text NOT NULL
+  `mucluong` text NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `congtac`
 --
 
-INSERT INTO `congtac` (`csv_id`, `thoigian`, `coquan_id`, `vitri`, `mucluong`) VALUES
-(1, '2018', 1, 'fresher', '100'),
-(2, '2017', 2, 'senior', '1000');
+INSERT INTO `congtac` (`id`, `csv_id`, `thoigian`, `coquan_id`, `vitri`, `mucluong`, `updated_at`) VALUES
+(1, 1, '2018', 1, 'fresher', '100', '2018-11-15 05:35:12'),
+(3, 2, '1/2018-7/2018', 3, 'manager', '10000', '2018-11-15 11:29:31'),
+(4, 2, '7/2018-nay', 1, 'manager', '10000', '2018-11-15 13:28:03'),
+(5, 4, '12/2017-nay', 1, 'fresher', '1500', '2018-11-15 16:07:42'),
+(6, 2, '2017', 2, 'senior', '1200', '2018-11-18 03:26:46');
 
 -- --------------------------------------------------------
 
@@ -65,9 +70,13 @@ CREATE TABLE `coquan` (
 --
 
 INSERT INTO `coquan` (`id`, `ten`, `diachi`, `loaihinh`) VALUES
-(1, 'FPT', 'Ha Noi', 'Ngoai nha nuoc'),
+(1, 'FPT', 'Ha Noi', 'Tu nhan'),
 (2, 'Viettel', 'Ha Noi', 'Nha nuoc'),
-(3, 'Samsung', 'Ha Noi', 'Nuoc ngoai');
+(3, 'Samsung', 'Ha Noi', 'Nuoc ngoai'),
+(4, 'Ominext', 'Japan', 'Tu nhan'),
+(5, 'CMC Telecom', 'Ha Noi', 'Tu nhan'),
+(6, 'Infore', 'Ha Noi', 'Tu nhan'),
+(7, 'Google', 'America', 'Nuoc ngoai');
 
 -- --------------------------------------------------------
 
@@ -83,16 +92,20 @@ CREATE TABLE `csv` (
   `sdt` int(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `user_id` int(11) UNSIGNED NOT NULL,
-  `khoahoc_id` int(11) NOT NULL
+  `khoahoc_id` int(11) NOT NULL,
+  `lop_id` int(10) UNSIGNED NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `csv`
 --
 
-INSERT INTO `csv` (`id`, `hoten`, `ngaysinh`, `quequan`, `sdt`, `email`, `user_id`, `khoahoc_id`) VALUES
-(1, 'Hoang Quy', '1998-03-23', 'Phu Tho', 327058007, 'demo2@gmail.com', 3, 59),
-(2, 'Dam Thanh', '1998-11-13', 'Ha Noi', 326372633, 'demo3@gmail.com', 4, 60);
+INSERT INTO `csv` (`id`, `hoten`, `ngaysinh`, `quequan`, `sdt`, `email`, `user_id`, `khoahoc_id`, `lop_id`, `updated_at`) VALUES
+(1, 'Hoang Quy', '1998-03-23', 'Phu Tho', 327058007, 'demo2@gmail.com', 3, 59, 1, '2018-11-15 05:32:54'),
+(2, 'Dam Tien Thanh', '1998-11-13', 'Ha Noi', 326372633, 'demo3@gmail.com', 4, 59, 1, '2018-11-16 10:07:38'),
+(3, 'Pham Duy Linh', '1998-03-18', 'Vinh Phuc', 321234567, 'demo5@gmail.com', 9, 59, 1, '2018-11-15 05:33:54'),
+(4, 'Nguyen Phuong Linh', '1998-10-20', 'Hai Phong', 327654321, 'demo8@gmail.com', 12, 59, 1, '2018-11-15 15:59:57');
 
 -- --------------------------------------------------------
 
@@ -138,6 +151,27 @@ INSERT INTO `huyen` (`id`, `tinh_id`, `tenhuyen`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `khaosat`
+--
+
+CREATE TABLE `khaosat` (
+  `csv_id` int(11) NOT NULL,
+  `cauhoi` text NOT NULL,
+  `cautraloi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `khaosat`
+--
+
+INSERT INTO `khaosat` (`csv_id`, `cauhoi`, `cautraloi`) VALUES
+(2, 'Cong viec hien tai cua ban co dung voi dinh huong cua ban khong?', 'Co'),
+(2, 'Ban co hai long voi cong viec hien tai khong?', 'Co'),
+(2, 'Ban co thich cong viec hien tai khong?', 'Co');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `khoahoc`
 --
 
@@ -163,11 +197,98 @@ INSERT INTO `khoahoc` (`id`, `tenkhoahoc`, `ghichu`) VALUES
 
 CREATE TABLE `lichsu` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `function_id` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `action` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lichsu`
+--
+
+INSERT INTO `lichsu` (`id`, `user_id`, `function_id`, `time`, `action`) VALUES
+(1, 9, 1, '2018-11-15 03:34:19', 'Them thong tin ca nhan'),
+(2, 9, 1, '2018-11-15 05:12:16', 'Them thong tin ca nhan'),
+(3, 9, 2, '2018-11-15 05:33:54', 'Cap nhat thong tin ca nhan'),
+(4, 4, 1, '2018-11-15 11:29:59', 'Them noi cong tac'),
+(5, 4, 2, '2018-11-15 13:23:29', 'Sua noi cong tac'),
+(6, 4, 2, '2018-11-15 13:24:00', 'Sua noi cong tac'),
+(7, 4, 2, '2018-11-15 13:28:03', 'Sua noi cong tac'),
+(8, 12, 1, '2018-11-15 15:58:47', 'dang ki tai khoan thanh cong'),
+(9, 12, 1, '2018-11-15 15:59:57', 'Them thong tin ca nhan'),
+(10, 12, 1, '2018-11-15 16:07:42', 'Them noi cong tac'),
+(11, 4, 2, '2018-11-15 16:12:39', 'Sua noi cong tac'),
+(12, 4, 2, '2018-11-16 08:27:25', 'Cap nhat thong tin ca nhan'),
+(13, 4, 2, '2018-11-16 08:27:32', 'Cap nhat thong tin ca nhan'),
+(14, 4, 2, '2018-11-16 08:27:34', 'Cap nhat thong tin ca nhan'),
+(15, 4, 2, '2018-11-16 08:27:36', 'Cap nhat thong tin ca nhan'),
+(16, 4, 2, '2018-11-16 08:27:37', 'Cap nhat thong tin ca nhan'),
+(17, 4, 2, '2018-11-16 08:27:38', 'Cap nhat thong tin ca nhan'),
+(18, 4, 2, '2018-11-16 08:27:39', 'Cap nhat thong tin ca nhan'),
+(19, 4, 2, '2018-11-16 08:27:39', 'Cap nhat thong tin ca nhan'),
+(20, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
+(21, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
+(22, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
+(23, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
+(24, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
+(25, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
+(26, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
+(27, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
+(28, 4, 2, '2018-11-16 08:27:49', 'Cap nhat thong tin ca nhan'),
+(29, 4, 2, '2018-11-16 08:33:30', 'Cap nhat thong tin ca nhan'),
+(30, 4, 2, '2018-11-16 08:33:32', 'Cap nhat thong tin ca nhan'),
+(31, 4, 2, '2018-11-16 08:33:32', 'Cap nhat thong tin ca nhan'),
+(32, 4, 2, '2018-11-16 08:33:33', 'Cap nhat thong tin ca nhan'),
+(33, 4, 2, '2018-11-16 08:33:33', 'Cap nhat thong tin ca nhan'),
+(34, 4, 2, '2018-11-16 08:33:33', 'Cap nhat thong tin ca nhan'),
+(35, 4, 2, '2018-11-16 08:33:35', 'Cap nhat thong tin ca nhan'),
+(36, 4, 2, '2018-11-16 08:33:36', 'Cap nhat thong tin ca nhan'),
+(37, 4, 2, '2018-11-16 08:33:42', 'Cap nhat thong tin ca nhan'),
+(38, 4, 2, '2018-11-16 08:33:44', 'Cap nhat thong tin ca nhan'),
+(39, 4, 2, '2018-11-16 08:33:49', 'Cap nhat thong tin ca nhan'),
+(40, 4, 2, '2018-11-16 08:33:49', 'Cap nhat thong tin ca nhan'),
+(41, 4, 2, '2018-11-16 08:34:00', 'Cap nhat thong tin ca nhan'),
+(42, 4, 2, '2018-11-16 08:35:35', 'Cap nhat thong tin ca nhan'),
+(43, 4, 2, '2018-11-16 08:35:37', 'Cap nhat thong tin ca nhan'),
+(44, 4, 2, '2018-11-16 10:07:05', 'Cap nhat thong tin ca nhan'),
+(45, 4, 2, '2018-11-16 10:07:38', 'Cap nhat thong tin ca nhan'),
+(46, 4, 1, '2018-11-17 15:57:58', 'Them co quan moi'),
+(47, 4, 3, '2018-11-17 16:03:29', 'Xoa noi cong tac'),
+(48, 4, 1, '2018-11-17 16:07:23', 'Them noi cong tac'),
+(49, 4, 2, '2018-11-17 16:08:04', 'Sua noi cong tac'),
+(50, 4, 2, '2018-11-18 03:18:12', 'Doi mat khau'),
+(51, 4, 2, '2018-11-18 03:19:15', 'Doi mat khau'),
+(52, 4, 2, '2018-11-18 03:26:03', 'Doi mat khau'),
+(53, 4, 2, '2018-11-18 03:26:46', 'Sua noi cong tac'),
+(54, 4, 1, '2018-11-18 10:40:30', 'Them co quan moi'),
+(55, 4, 2, '2018-11-18 10:41:58', 'Doi mat khau'),
+(56, 4, 1, '2018-11-18 13:39:43', 'Tra loi cau hoi khao sat'),
+(57, 4, 1, '2018-11-18 13:40:16', 'Tra loi cau hoi khao sat');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lop`
+--
+
+CREATE TABLE `lop` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tenlop` varchar(255) NOT NULL,
+  `khoahoc_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lop`
+--
+
+INSERT INTO `lop` (`id`, `tenlop`, `khoahoc_id`) VALUES
+(1, 'K59CC', 59),
+(2, 'K59CB', 59),
+(3, 'K59CD', 59),
+(4, 'K60CB', 60),
+(5, 'K60CC', 60),
+(6, 'K60CD', 60);
 
 -- --------------------------------------------------------
 
@@ -295,7 +416,11 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (1, 'admin', 'admin@gmail.com', NULL, '12345678', NULL, '2018-11-11 12:40:37', '2018-11-11 12:40:37'),
 (2, 'demo1', 'demo1@gmail.com', NULL, '12345678', NULL, NULL, NULL),
 (3, 'demo2', 'demo2@gmail.com', NULL, '12345678', 'HBnEbnQd9wqegS83AYWMnq3mB3Cd45stGp3G1vmhWf6ZEOvlygIokuHqDr7w', NULL, '2018-11-12 11:08:08'),
-(4, 'demo3', 'demo3@gmail.com', NULL, '12345678', '07HlxUpVtjEqNT1REbeAwt7yHOmPOtMdteh9DMQ14x7MMUP389cqfooKIHhU', NULL, '2018-11-13 02:45:27');
+(4, 'Dam Tien Thanh', 'demo3@gmail.com', NULL, '12345678', 'Bj12s3M9IXzn7CwPZgS3qEP82QyEOBy6r6d11T7nJ4iobq9lRt0K9oKrqqLZ', NULL, '2018-11-18 13:43:32'),
+(9, 'Pham Duy Linh', 'demo5@gmail.com', NULL, '12345678', '4IZqcxikrdyI4rCjoozvKC4suuuXGgNAf5ddhQzxHDMcQYqJuCIPN9B8gIJr', NULL, '2018-11-16 08:01:54'),
+(10, NULL, 'demo6@gmail.com', NULL, '12345678', NULL, '2018-11-14 09:28:44', '2018-11-14 09:28:44'),
+(11, NULL, 'demo7@gmail.com', NULL, '12345678', '4LEnzbL0S75FDH6CwYhdpAbTk1Ine5pK8fxYwweNs00d12yV9poMC5l62TpN', '2018-11-14 13:04:55', '2018-11-14 13:11:46'),
+(12, 'Nguyen Phuong Linh', 'demo8@gmail.com', NULL, '12345678', 'BYbHVRu6oxnN1H2byncJbFYz2EIpp5voMQKPG062GlDJ3gF4M0Wxx3M7pZ6S', '2018-11-15 15:58:47', '2018-11-15 16:09:07');
 
 -- --------------------------------------------------------
 
@@ -324,6 +449,7 @@ INSERT INTO `user_role` (`user_id`, `role_id`) VALUES
 -- Indexes for table `congtac`
 --
 ALTER TABLE `congtac`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_congtac_csv` (`csv_id`),
   ADD KEY `fk_congtac_coquan` (`coquan_id`);
 
@@ -339,7 +465,8 @@ ALTER TABLE `coquan`
 ALTER TABLE `csv`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_csv_user` (`user_id`),
-  ADD KEY `fk_csv_khoahoc` (`khoahoc_id`);
+  ADD KEY `fk_csv_khoahoc` (`khoahoc_id`),
+  ADD KEY `fk_csv_lop` (`lop_id`);
 
 --
 -- Indexes for table `function`
@@ -354,6 +481,12 @@ ALTER TABLE `huyen`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `khaosat`
+--
+ALTER TABLE `khaosat`
+  ADD KEY `fk_khaosat_csv` (`csv_id`);
+
+--
 -- Indexes for table `khoahoc`
 --
 ALTER TABLE `khoahoc`
@@ -366,6 +499,13 @@ ALTER TABLE `lichsu`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_lichsu_user` (`user_id`),
   ADD KEY `fk_lichsu_function` (`function_id`);
+
+--
+-- Indexes for table `lop`
+--
+ALTER TABLE `lop`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_lop_khoahoc` (`khoahoc_id`);
 
 --
 -- Indexes for table `migrations`
@@ -416,16 +556,22 @@ ALTER TABLE `user_role`
 --
 
 --
+-- AUTO_INCREMENT for table `congtac`
+--
+ALTER TABLE `congtac`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `coquan`
 --
 ALTER TABLE `coquan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `csv`
 --
 ALTER TABLE `csv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `function`
@@ -449,7 +595,13 @@ ALTER TABLE `khoahoc`
 -- AUTO_INCREMENT for table `lichsu`
 --
 ALTER TABLE `lichsu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT for table `lop`
+--
+ALTER TABLE `lop`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -473,7 +625,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
@@ -491,14 +643,27 @@ ALTER TABLE `congtac`
 --
 ALTER TABLE `csv`
   ADD CONSTRAINT `fk_csv_khoahoc` FOREIGN KEY (`khoahoc_id`) REFERENCES `khoahoc` (`id`),
+  ADD CONSTRAINT `fk_csv_lop` FOREIGN KEY (`lop_id`) REFERENCES `lop` (`id`),
   ADD CONSTRAINT `fk_csv_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `khaosat`
+--
+ALTER TABLE `khaosat`
+  ADD CONSTRAINT `fk_khaosat_csv` FOREIGN KEY (`csv_id`) REFERENCES `csv` (`id`);
 
 --
 -- Constraints for table `lichsu`
 --
 ALTER TABLE `lichsu`
   ADD CONSTRAINT `fk_lichsu_function` FOREIGN KEY (`function_id`) REFERENCES `function` (`id`),
-  ADD CONSTRAINT `fk_lichsu_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_lichsu_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `lop`
+--
+ALTER TABLE `lop`
+  ADD CONSTRAINT `fk_lop_khoahoc` FOREIGN KEY (`khoahoc_id`) REFERENCES `khoahoc` (`id`);
 
 --
 -- Constraints for table `role_function`

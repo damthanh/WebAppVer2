@@ -49,3 +49,5 @@
         <script type="text/javascript" src="{{asset('js/select2.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/processing.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/Chart.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/Chart.js')}}"></script>

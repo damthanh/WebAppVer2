@@ -71,3 +71,16 @@ Route::post('changePass','ChangePassController@postChangePass');
 Route::get('khaosat','KhaosatController@getKhaosat');
 
 Route::post('khaosat','KhaosatController@postKhaosat');
+
+Route::get('test',function(){
+    return view('admin.adminMaster');
+});
+
+Route::group(['prefix'=>'admin'],function(){
+    Route::get('home',function(){
+        return view('admin.adminIndex');
+    });
+    Route::get('listCsv','AdminListCsvController@getListCsv');
+
+    Route::post('listCsv','AdminListCsvController@postListCsv');
+});

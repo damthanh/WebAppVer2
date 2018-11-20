@@ -40,7 +40,12 @@ class AuthController extends Controller
                     $lop=Lop::all();
                     $khoahoc=Khoahoc::all();
                     $csv=Csv::where('user_id','=',Auth::user()->id)->first();
-                    return redirect('home');
+                    if(Auth::user()->user_lv==1){
+                        return redirect('admin/home');
+                    }else{
+                        return redirect('home'); 
+                    }
+                    
                     // return RegisterInformationController::getInformation();
                 }
             }

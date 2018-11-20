@@ -20,8 +20,13 @@ class ReportController extends Controller
         $nhanuoc = (Congtac::join('coquan','congtac.coquan_id','=','coquan.id')->where('coquan.loaihinh','=','Nha nuoc')->count()) / $sum * 100;
         $tunhan = (Congtac::join('coquan','congtac.coquan_id','=','coquan.id')->where('coquan.loaihinh','=','Tu nhan')->count()) / $sum * 100;
         $nuocngoai = (Congtac::join('coquan','congtac.coquan_id','=','coquan.id')->where('coquan.loaihinh','=','Nuoc ngoai')->count()) / $sum * 100;
+        $luong1 = Congtac::where('mucluong','<',1000)->count();
+        $luong2 = Congtac::whereBetween('mucluong',[1000,2000])->count();
+        $luong3 = Congtac::whereBetween('mucluong',[2001,3000])->count();
+        $luong4 = Congtac::whereBetween('mucluong',[3001,5000])->count();
+        $luong5 = Congtac::where('mucluong','>',5000)->count();
+
         
-        
-        return view('report',['mucluong'=>$mucluong,'nhanuoc'=>$nhanuoc,'tunhan'=>$tunhan,'nuocngoai'=>$nuocngoai]);
+        return view('report',['mucluong'=>$mucluong,'nhanuoc'=>$nhanuoc,'tunhan'=>$tunhan,'nuocngoai'=>$nuocngoai,'luong1'=>$luong1,'luong2'=>$luong2,'luong3'=>$luong3,'luong4'=>$luong4, 'luong5'=>$luong5]);
     }
 }

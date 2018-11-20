@@ -55,7 +55,11 @@
                         <td style="width: 350px;">
                             <select name="khoahoc">
                                 @foreach($khoahoc as $row)
+                                @if($csv->khoahoc_id==$row->id)
+                                <option  value="{{$row->id}}" selected="true">{{$row->tenkhoahoc}}</option>
+                                @else
                                 <option  value="{{$row->id}}">{{$row->tenkhoahoc}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </td>
@@ -66,7 +70,11 @@
                         <td>
                         <select name="lop">
                                 @foreach($lop as $row)
+                                @if($csv->lop_id==$row->id)
+                                <option  value="{{$row->id}}" selected="true">{{$row->tenlop}}</option>
+                                @else
                                 <option  value="{{$row->id}}">{{$row->tenlop}}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </td>

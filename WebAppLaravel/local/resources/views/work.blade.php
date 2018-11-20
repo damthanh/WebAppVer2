@@ -105,7 +105,7 @@
                             
                         </tr>
                         <tr >
-                            <td style="width: 200px;">Mức lương:</td>
+                            <td style="width: 200px;">Mức lương($):</td>
                             <td colspan="3"><input type="input" name="mucluong" class="form-control" required style="width:95%" /> </td>
                             
                         </tr>
@@ -113,20 +113,11 @@
                             <td style="width: 200px;">Thời gian(start-end):</td>
                             <td colspan="3"><input type="input" name="thoigian" class="form-control" required style="width:95%" /></td>
                         </tr>
-                        <!-- <tr>
-                        <td>Loại hình </td>
-                            <td >
-                                <select name ="loaihinh">
-                                    <option value="Nha nuoc">Doanh nghiệp nhà nước </option>
-                                    <option value="Tu nhan"> Doanh nghiệp tư nhân</option>
-                                    <option value="Nuoc ngoai"> Doanh nghiệp có vốn nước ngoài</option>
-                                </select>
-                            </td>
-                        </tr> -->
+                        
                         <td colspan="4" style="text-align:right">
                                 
                                 <button type="submit" value="Cập nhật" class="btn btn-registerinfor">Thêm</button>              
-                                <!-- <a  href="/"><button type="button" class="btn btn-registerinfor">Bỏ Qua</button></a> -->
+                                
                         </td>
                     
     </table>

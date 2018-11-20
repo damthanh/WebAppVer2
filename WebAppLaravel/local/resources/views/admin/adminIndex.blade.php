@@ -9,7 +9,7 @@
 @stop
 
 @section('header')
-    @include('header')
+    @include('admin.adminheader')
 @stop
 
 @section('content')
@@ -55,6 +55,3 @@
     </div>
 @stop
 
-@section('footer')
-	@include('footer')
-@stop

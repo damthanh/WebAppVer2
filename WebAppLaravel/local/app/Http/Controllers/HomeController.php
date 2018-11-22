@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
+use App\Thongbao;
 
 class HomeController extends Controller
 {
@@ -14,11 +15,16 @@ class HomeController extends Controller
     }
 
     public function getIndex(){
-        return view('registerInformation');
+        $thongbao=Thongbao::all();
+        if(Auth::user()->user_lv==1){
+            
+            return view('admin.adminIndex',['thongbao'=>$thongbao]);
+        }
+        return view('index',['thongbao'=>$thongbao]);
     }
 
     public function getLogout(){
         Auth::logout();
-        return redirect(\URL::previous());
+        return redirect('login');
     }
 }

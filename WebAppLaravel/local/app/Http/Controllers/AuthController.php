@@ -15,6 +15,7 @@ use RegisterInformationController;
 use App\Lop;
 use App\Khoahoc;
 use App\Csv;
+use App\Thongbao;
 
 class AuthController extends Controller
 {
@@ -43,7 +44,8 @@ class AuthController extends Controller
                     if(Auth::user()->user_lv==1){
                         return redirect('admin/home');
                     }else{
-                        return redirect('home'); 
+                        $thongbao=Thongbao::all();
+                        return view('index',['thongbao'=>$thongbao]); 
                     }
                     
                     // return RegisterInformationController::getInformation();

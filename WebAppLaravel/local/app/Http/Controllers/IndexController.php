@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Auth;
-
+use App\Thongbao;
 class IndexController extends Controller
 {
     //
@@ -16,6 +16,7 @@ class IndexController extends Controller
     // }
 
     public function getIndex(){
-        return view('index');
+        $thongbao=Thongbao::all();
+        return view('index',['thongbao'=>$thongbao]);
     }
 }

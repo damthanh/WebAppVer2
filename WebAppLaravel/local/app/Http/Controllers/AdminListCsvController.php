@@ -33,32 +33,38 @@ class AdminListCsvController extends Controller
         if($request->has('btn')){
             switch ($btn){
                 case 'insert':
-                    $csv=Csv::where('user_id','=',$request->input('newuser_id'));
-                    if($csv){
+                    $hoten=$request->input('name');
+                    $ngaysinh=$request->input('born');
+                    $quequan=$request->input('hometown');
+                    $sdt=$request->input('phone');
+                    $user_id=$request->input('newuser_id');
+                    $khoahoc_id=$request->input('course_id');
+                    $lop_id=$request->input('class_id');
+                    $csv=Csv::where('user_id','=',$request->input('newuser_id'))->get();
+                    if($csv->has('user_id')){
                         $request->session()->flash('err','Tài khoản bạn chọn đã có thông tin về sinh viên');
                         
-                    }else{
-                        $hoten=$request->input('name');
-                        $ngaysinh=$request->input('born');
-                        $quequan=$request->input('hometown');
-                        $sdt=$request->input('phone');
-                        $user_id=$request->input('newuser_id');
-                        $khoahoc_id=$request->input('course_id');
-                        $lop_id=$request->input('class_id');
+                    }else if(isset($hoten) && isset($ngaysinh) && isset($quequan) && isset($sdt) && isset($user_id) && isset($khoahoc_id) && isset($lop_id)){
+                        
                         $user=User::find($user_id);
-                        // Csv::insert([
-                        //     'hoten'=>$hoten,
-                        //     'ngaysinh'=>$ngaysinh,
-                        //     'quequan'=>$quequan,
-                        //     'sdt'=>$sdt,
-                        //     'email'=>$user->email,
-                        //     'user_id'=>$user_id,
-                        //     'khoahoc_id'=>$khoahoc_id,
-                        //     'lop_id'=>$lop_id    
-                        // ]);
-                        // Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>1,'time'=>Carbon::now(),'action'=>'Them thong tin sinh vien']);
-                        // $request->session()->flash('status','Thêm thông tin sinh viên thành công'); 
+                        Csv::insert([
+                            'hoten'=>$hoten,
+                            'ngaysinh'=>$ngaysinh,
+                            'quequan'=>$quequan,
+                            'sdt'=>$sdt,
+                            'email'=>$user->email,
+                            'user_id'=>$user_id,
+                            'khoahoc_id'=>$khoahoc_id,
+                            'lop_id'=>$lop_id    
+                        ]);
+                        User::where('id','=',$user_id)->update([
+                            'name'=>$hoten
+                        ]);
+                        Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>1,'time'=>Carbon::now(),'action'=>'Them thong tin sinh vien']);
+                        $request->session()->flash('status','Thêm thông tin sinh viên thành công'); 
                              
+                    }else{
+                        $request->session()->flash('err','Không được bỏ trống bất cứ trường nào dưới đây');
                     }
                     break;
                 case 'edit';
@@ -88,7 +94,7 @@ class AdminListCsvController extends Controller
                             'email'=>$email,
                             'name'=>$hoten
                         ]);
-                        Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>1,'time'=>Carbon::now(),'action'=>'Sua thong tin sinh vien cho tai khoan co id: '.$user_id]);
+                        Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>2,'time'=>Carbon::now(),'action'=>'Sua thong tin sinh vien cho tai khoan co id: '.$user_id]);
                         $request->session()->flash('status','Sửa thông tin sinh viên thành công'); 
                              
                     }else{
@@ -98,19 +104,23 @@ class AdminListCsvController extends Controller
                     break;
                 case 'delete';
                     $delete=$request->input("d");
-                    if($delete){
+                    if(isset($delete)){
                         foreach($delete as $key=>$val){
                             Csv::where('id','=',$val)->delete();
-                            Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>1,'time'=>Carbon::now(),'action'=>'Xoa thong tin cua sinh vien']);
+                            
                         }
-                        
+                        Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>3,'time'=>Carbon::now(),'action'=>'Xoa thong tin cua sinh vien']);
                         $request->session()->flash('status','Xóa thông tin cựu sinh viên thành công '); 
                     }else{
                         $request->session()->flash('err','Bạn phải chọn ít nhất 1 hàng để xóa');
                     }   
-                    break;    
+                    break;  
+                case 'deleteall':
+                    Csv::query()->delete();
+                    Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>3,'time'=>Carbon::now(),'action'=>'Xoa thong tin cua tat ca cuu sinh vien']);
+                    $request->session()->flash('status','Xóa thông tin của tất cả cựu sinh viên thành công ');      
             }
         }
-        return redirect();
+        return redirect('admin/listCsv');
     }
 }

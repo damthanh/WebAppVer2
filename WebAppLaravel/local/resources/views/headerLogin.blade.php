@@ -1,4 +1,4 @@
-<div class="topheader">
+<div class="topheader" style="height:200px">
     <div class="outer">
         <div class="inner">
             <div class="topleftmenu" style="width:1200px;">
@@ -15,23 +15,12 @@
                     <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}}<span class="caret"></span></a>
                     <ul class="dropdown-menu" style="background-color: #268dc9">
                         <li><a href="changePass" style="padding-top:0px; ">Đổi mật khẩu</a></li>
-                       
+                        <li><a  href="{{url('logout')}}">Đăng xuất</a> </li>
                     </ul>
                 
                 </a>
-                <a target="_top" href="{{url('logout')}}">Đăng xuất</a> 
-                <!-- <div class="toprightmenu">
                 
-                <div class="login_register">
-                    <li class="dropdown" style="text-align:center">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->email}}<b class="caret"></b></a>
-                        <ul class="dropdown-menu" style="padding-top:0px">
-                            <li><a href="{{url('logout')}}" style="width:158px">Logout</a></li>
-                        </ul>
-                    </li>    
-                </div>
-                 <div class="clear"></div> 
-            </div> -->
+                
             </div>
             
         </div>

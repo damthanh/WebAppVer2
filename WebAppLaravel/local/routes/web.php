@@ -20,19 +20,13 @@ Route::get('master',function(){
     return view('master');
 });
 
-Route::get('test',function(){
-    $user = User::find(4);
-
-    echo $user->checkEmail("123");
-});
-
 Route::get('login','AuthController@getLogin');
 
 Route::post('login','AuthController@login')->name('login');
 
 Route::get('','HomeController@getIndex');
 
-Route::get('logout','HomeController@getLogout');
+Route::get('logout','HomeController@getLogout')->name('logout');
 
 Route::get('home','IndexController@getIndex');
 
@@ -72,15 +66,40 @@ Route::get('khaosat','KhaosatController@getKhaosat');
 
 Route::post('khaosat','KhaosatController@postKhaosat');
 
-Route::get('test',function(){
-    return view('admin.adminMaster');
-});
-
 Route::group(['prefix'=>'admin'],function(){
-    Route::get('home',function(){
-        return view('admin.adminIndex');
-    });
+    Route::get('home','HomeController@getIndex');
+    
     Route::get('listCsv','AdminListCsvController@getListCsv');
 
     Route::post('listCsv','AdminListCsvController@postListCsv');
+
+    Route::get('listUser','AdminListUserController@getListUser');
+
+    Route::post('listUser','AdminListUserController@postListUser');
+
+    Route::get('listCompany','AdminListCompanyController@getListCompany');
+
+    Route::post('listCompany','AdminListCompanyController@postListCompany');
+
+    Route::get('listCourse','AdminListCourseController@getListCourse');
+
+    Route::post('listCourse','AdminListCourseController@postListCourse');
+
+    Route::get('listClass','AdminListClassController@getListClass');
+
+    Route::post('listClass','AdminListClassController@postListClass');
+
+    Route::get('listWork','AdminListWorkController@getListWork');
+
+    Route::post('listWork','AdminListWorkController@postListWork');
+
+    Route::get('listNotice','AdminListNoticeController@getListNotice');
+
+    Route::post('listNotice','AdminListNoticeController@postListNotice');
+
+    Route::get('report','AdminReportController@getReport');
+
+    Route::get('listSurvey','AdminListSurveyController@getListSurvey');
+
+    Route::get('listHistory','AdminListHistoryController@getListHistory');
 });

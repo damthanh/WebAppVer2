@@ -1,6 +1,6 @@
 @extends('admin.adminMaster')
 @section('title')
-    <title>Danh sách lớp</title>
+    <title>Danh sách cơ quan</title>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
 @if (session('err'))
         <div class="alert alert-danger">{{session('err')}}</div>
 @endif
-<h1 class="text-center">Thêm lớp mới</h1>
+<h1 class="text-center">Thêm cơ quan mới</h1>
 
 
 
@@ -21,18 +21,19 @@
     <table class="tableInformation" align="center">
                         
                         <tr class="form-group" >
-                            <td style="width: 100px;">Tên lớp:</td>
-                            <td colspan="3"><input type="input" name="tenlop" class="form-control"   style="width:95%" /> </td>
+                            <td style="width: 100px;">Tên cơ quan:</td>
+                            <td colspan="3"><input type="input" name="name" class="form-control"   style="width:95%" /> </td>
                             
                         </tr>
                         <tr class="form-group" >
-                            
-                            <td>Khóa học:</td>
+                            <td style="width: 100px;">Địa chỉ (thành phố/tỉnh):</td>
+                            <td ><input type="text" name="diachi" style="width:95%" /> </td>
+                            <td>Loại hình:</td>
                             <td>
-                            <select name="khoahoc">
-                                @foreach($khoahoc as $row)
-                                    <option value="{{$row->id}}">{{$row->tenkhoahoc}}</option>
-                                @endforeach
+                            <select name="loaihinh">
+                                <option value="Nha nuoc">Nhà nước</option>
+                                <option value="Tu nha">Tư nhân</option>
+                                <option value="Nuoc ngoai">Nước ngoài</option>
                             </select>
                             </td>
                         </tr>
@@ -49,7 +50,7 @@
 
  <hr>
  <br>
-<h1 class="text-center">Danh sách lớp</h1>
+<h1 class="text-center">Danh sách cơ quan</h1>
 <table class="table table-striped table-bordered table-hover" id="dataTables-example" width="1000px">                 
                     <tr>
                     <button type="submit" name="btn" value="edit" class="btn btn-registerinfor">Sửa</button>  
@@ -59,32 +60,43 @@
                     <thead>
                         <tr align="center">
                             <th>ID</th>
-                            <th>Tên lớp</th>
-                            <th>Khóa học </th>
-                            <th>Ngày cập nhật</th>                       
+                            <th>Tên cơ quan</th>
+                            <th>Địa chỉ </th>
+                            <th>Loại hình </th>
+                            <th>Ngày cập nhật</th>
+                       
                             <th>Sửa</th>
                             <th> Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($lop as $row)
+                    @foreach($coquan as $row)
                     
                         <input type="hidden" name="id" value="{{$row->id}}" />
                         <tr class="odd gradeX" align="center">
                             <td>{{$row->id}}</td>
-                            <td><input type="text"  name="tenlop{{$row->id}}" value="{{$row->tenlop}}"/></td>
-                            <td>
-                            <select name="khoahoc_id{{$row->id}}">
-                            @foreach($khoahoc as $row1)
-                                @if($row1->id == $row->khoahoc_id)
-                                    <option value="{{$row1->id}}" selected="true">{{$row1->tenkhoahoc}}</option>
-                                @else
-                                    <option value="{{$row1->id}}" selected="true">{{$row1->tenkhoahoc}}</option>
-                                @endif
-                            @endforeach
-                            <td>{{$row->updated_at}}</td>
+                            <td><input type="text"  name="coquan{{$row->id}}" value="{{$row->ten}}"/></td>
+                            <td><input type="text"  name="diachi{{$row->id}}" value="{{$row->diachi}}"/></td>
+                          
                             
-                           
+                            <td>
+                            <select name="loaihinh{{$row->id}}">
+                            @if($row->loaihinh=='Nha nuoc')
+                            <option value="Nha nuoc" selected="true">Nhà nước</option>
+                            <option value="Tu nhan">Tư nhân</option>
+                            <option value="Nuoc ngoai">Nước ngoài</option>
+                            @elseif($row->loaihinh=='Tu nhan')
+                            <option value="1" >Nhà nước</option>
+                            <option value="2" selected="true">Tư nhân</option>
+                            <option value="Nuoc ngoai">Nước ngoài</option>
+                            @else
+                            <option value="Nuoc ngoai" >Nhà nước</option>
+                            <option value="Tu nhan" >Tư nhân</option>
+                            <option value="Nuoc ngoai" selected="true">Nước ngoài</option>
+                            @endif
+                            </select>
+                            </td>
+                            <td>{{$row->updated_at}}</td>
                             
                             <td class="center"><input type="radio" name="checkedit" value="{{$row->id}}"/></td>
                             <td class="center"><input type="checkbox" name="d[]" value="{{$row->id}}"/></td>

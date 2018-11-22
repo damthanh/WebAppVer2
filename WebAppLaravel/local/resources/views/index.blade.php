@@ -53,6 +53,23 @@
                     <span class="sr-only">Next</span>
                 </a>
     </div>
+    @if(isset($thongbao))
+        <h1 class="text-center">Thông báo</h1>
+        <table class="table table-striped table-bordered table-hover" id="dataTables-example" width="1000px"> 
+            <thead>
+                <tr align="center">
+                    <th>Ngày đăng</th>
+                    <th>Thông báo</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($thongbao as $row)
+                    <td>{{$row->updated_at}}</td>
+                    <td>{{$row->thongtin}}</td>
+                @endforeach
+            </tbody>
+        </table>
+    @endif
 @stop
 
 @section('footer')

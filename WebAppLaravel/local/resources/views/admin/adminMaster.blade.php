@@ -6,7 +6,7 @@
     </head>
     <body>
         @include('admin.adminheader')
-        <div class="body-wrapper" style="">
+        <div class="body-wrapper">
             @yield('content')
         </div>
         @include('footer')

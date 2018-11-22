@@ -1,4 +1,4 @@
-<div class="topheader">
+<div class="topheader" style="height:200px">
     <div class="outer">
         <div class="inner">
             <div class="topleftmenu" style="width:1300px;">
@@ -18,12 +18,12 @@
                 <a class="dropdown" style="text-align:center">
                     <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}}<span class="caret"></span></a>
                     <ul class="dropdown-menu" style="background-color: #268dc9">
-                        <li><a href="changePass" style="padding-top:0px; ">Đổi mật khẩu</a></li>
-                       
+                        <li><a href="changePass" >Đổi mật khẩu</a></li>
+                        <li><a  href="{{url('logout')}}">Đăng xuất</a></li>
                     </ul>
                 
                 </a>
-                <a target=_top href="{{url('logout')}}">Đăng xuất</a>
+               
                 @else
                 <a target="_top" href="login">Đăng nhập</a>
                 <a target=_top href="register">Đăng kí</a>

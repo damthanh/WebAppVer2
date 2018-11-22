@@ -20,7 +20,7 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
     <table class="tableInformation" align="center">
                         <tr class="form-group">
-                            <td style="width: 200px;">Nơi công tác :</td>
+                            <td style="width: 200px;">User_id:</td>
                             <td colspan="2">
                                 <select name="newuser_id">
                                     @foreach($user as $row)
@@ -34,18 +34,18 @@
                         </tr>
                         <tr >
                             <td style="width: 100px;">Họ tên:</td>
-                            <td colspan="3"><input type="input" name="name" class="form-control"  style="width:95%" /> </td>
+                            <td colspan="3"><input type="input" name="name" class="form-control"   style="width:95%" /> </td>
                             
                         </tr>
                         <tr >
                             <td style="width: 100px;">Ngày sinh:</td>
-                            <td ><input type="date" name="born"   style="width:95%" /> </td>
+                            <td ><input type="date" name="born"  style="width:95%" /> </td>
                             <td>Quê quán:</td>
-                            <td><input type="text" name="hometown" class="form-control"/></td>
+                            <td><input type="text" name="hometown"  class="form-control"/></td>
                         </tr>
                         </tr>
                             <td style="width: 100px;">SĐT:</td>
-                            <td><input type="input" name="phone" class="form-control"  style="width:95%" /></td>
+                            <td><input type="input" name="phone"  class="form-control"  style="width:95%" /></td>
                         </tr>
                         <tr>
                             <td style="width:100px">Khóa học:</td>
@@ -86,7 +86,8 @@
                     </tr>
                     <thead>
                         <tr align="center">
-                            <td>Họ tên</th>
+                            <th>ID</th>
+                            <th>Họ tên</th>
                             <th> Ngày sinh</th>
                             <th> Quê quán</th>
                             <th>SĐT</th>
@@ -103,6 +104,7 @@
                     
                         <input type="hidden" name="id" value="{{$row->id}}" />
                         <tr class="odd gradeX" align="center">
+                            <td>{{$row->id}}</td>
                             <td><input type="text"  name="hoten{{$row->id}}" value="{{$row->hoten}}"/></td>
                             <td><input type="date"  name="ngaysinh{{$row->id}}" value="{{$row->ngaysinh}}"/></td>
                             <td><input type="text"  name="quequan{{$row->id}}" value="{{$row->quequan}}"/></td>

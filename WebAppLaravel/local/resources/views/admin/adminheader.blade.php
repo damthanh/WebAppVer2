@@ -2,30 +2,30 @@
     <div class="outer">
         <div class="inner">
             <div class="topleftmenu" style="width:1200px;">
-                <a target="_top" href="home">Trang chủ</a>
+                <a target="_top" href='home'>Trang chủ</a>
                 <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quản lý hệ thống <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" style="background-color: #268dc9">
-                        <li ><a role="menuitem"  href="">Danh sách người dùng</a></li>
+                        <li ><a role="menuitem"  href='listUser'>Danh sách người dùng</a></li>
                         <li ><a role="menuitem"  href='listCsv'>Danh sách cựu sinh viên</a></li>
-                        <li ><a role="menuitem"  href="">Danh sách cơ quan</a></li>
-                        <li ><a role="menuitem"  href="">Quá trình công tác</a></li>
-                        <li ><a role="menuitem"  href="">Danh sách lớp</a></li>
-                        <li ><a role="menuitem"  href="">Danh sách khóa học</a></li>
-                        <li ><a role="menuitem"  href="">Thông báo</a></li>
+                        <li ><a role="menuitem"  href='listCompany'>Danh sách cơ quan</a></li>
+                        <li ><a role="menuitem"  href='listWork'>Quá trình công tác</a></li>
+                        <li ><a role="menuitem"  href='listClass'>Danh sách lớp</a></li>
+                        <li ><a role="menuitem"  href='listCourse'>Danh sách khóa học</a></li>
                     </ul>
-                <a target="_top" href="">Lịch sử người dùng</a>
-                <a target="_top" href="">Thống kê</a> 
+                <a target="_top" href='listNotice'>Thông báo</a>
+                <a target="_top" href='listSurvey'>Xem khảo sát</a>    
+                <a target="_top" href='listHistory'>Lịch sử người dùng</a>
+                <a target="_top" href='report'>Thống kê</a> 
                 @if(Auth::check()) 
                 <div class="toprightmenu"> 
                     <a class="dropdown" style="text-align:center">
                         <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}}<span class="caret"></span></a>
                         <ul class="dropdown-menu" style="background-color: #268dc9">
                             <li><a href="changePass" style="padding-top:0px; ">Đổi mật khẩu</a></li>
-                        
+                            <li><a href="{{route('logout')}}" >Đăng xuất</a> </li>
                         </ul>
                     
                     </a>
-                    <a target="_top" href='logout' >Đăng xuất</a> 
                 </div>
                 @else
                 <a target="_top" href="" >Đăng nhập</a> 

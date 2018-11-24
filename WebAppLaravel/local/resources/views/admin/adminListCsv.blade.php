@@ -105,11 +105,11 @@
                         <input type="hidden" name="id" value="{{$row->id}}" />
                         <tr class="odd gradeX" align="center">
                             <td>{{$row->id}}</td>
-                            <td><input type="text"  name="hoten{{$row->id}}" value="{{$row->hoten}}"/></td>
-                            <td><input type="date"  name="ngaysinh{{$row->id}}" value="{{$row->ngaysinh}}"/></td>
-                            <td><input type="text"  name="quequan{{$row->id}}" value="{{$row->quequan}}"/></td>
-                            <td><input type="text"  name="sdt{{$row->id}}" value="{{$row->sdt}}"/></td>
-                            <td><input type="text"  name="email{{$row->id}}" value="{{$row->email}}"/></td>
+                            <td><input type="text" style="width:160px" name="hoten{{$row->id}}" value="{{$row->hoten}}"/></td>
+                            <td><input type="date" style="width:140px" name="ngaysinh{{$row->id}}" value="{{$row->ngaysinh}}"/></td>
+                            <td><input type="text" style="width:90px" name="quequan{{$row->id}}" value="{{$row->quequan}}"/></td>
+                            <td><input type="text" style="width:90px" name="sdt{{$row->id}}" value="{{$row->sdt}}"/></td>
+                            <td><input type="text" style="width:80px" name="email{{$row->id}}" value="{{$row->email}}"/></td>
                             <td>
                             <select name="user_id{{$row->id}}">
                             @foreach($user as $row1)

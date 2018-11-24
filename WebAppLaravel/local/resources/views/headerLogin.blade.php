@@ -1,4 +1,4 @@
-<div class="topheader" style="height:200px">
+<div class="topheader" style=" overflow: visible;">
     <div class="outer">
         <div class="inner">
             <div class="topleftmenu" style="width:1200px;">

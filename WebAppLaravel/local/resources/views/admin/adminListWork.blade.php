@@ -86,7 +86,7 @@
                         <input type="hidden" name="id" value="{{$row->id}}" />
                         <tr class="odd gradeX" align="center">
                             <td>{{$row->id}}</td>
-                            <td><input type="text"  name="csv_id{{$row->id}}" value="{{$row->csv_id}}"/></td>
+                            <td><input type="text" style="width:100px" name="csv_id{{$row->id}}" value="{{$row->csv_id}}"/></td>
                             <td><input type="text"  name="thoigian{{$row->id}}" value="{{$row->thoigian}}"/></td>
                             <td>
                                 <select name="coquan_id{{$row->id}}">

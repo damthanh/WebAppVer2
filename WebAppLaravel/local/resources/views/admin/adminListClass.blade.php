@@ -79,7 +79,7 @@
                                 @if($row1->id == $row->khoahoc_id)
                                     <option value="{{$row1->id}}" selected="true">{{$row1->tenkhoahoc}}</option>
                                 @else
-                                    <option value="{{$row1->id}}" selected="true">{{$row1->tenkhoahoc}}</option>
+                                    <option value="{{$row1->id}}" >{{$row1->tenkhoahoc}}</option>
                                 @endif
                             @endforeach
                             <td>{{$row->updated_at}}</td>

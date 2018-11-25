@@ -55,7 +55,7 @@ class AdminListUserController extends Controller
                     }
                     break;
                 case 'edit':
-                    $checkedit=$request->input('edit');
+                    $checkedit=$request->input('checkedit');
                     if(isset($checkedit)){
                         $email=$request->input("email$checkedit");
                         $password=$request->input("password$checkedit");

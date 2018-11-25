@@ -38,6 +38,8 @@ Route::get('history','HistoryController@getHistory');
 
 Route::get('listStudent','ListStudentController@getListStudent');
 
+Route::get('listStudent2','ListStudent2Controller@getListStudent2');
+
 Route::get('report','ReportController@getReport');
 
 Route::get('register','RegisterController@getRegister');
@@ -65,6 +67,10 @@ Route::post('changePass','ChangePassController@postChangePass');
 Route::get('khaosat','KhaosatController@getKhaosat');
 
 Route::post('khaosat','KhaosatController@postKhaosat');
+
+Route::get('searchStudent','SearchStudentController@getSearchStudent');
+
+Route::post('searchStudent','SearchStudentController@postSearchStudent');
 
 Route::group(['prefix'=>'admin'],function(){
     Route::get('home','HomeController@getIndex');

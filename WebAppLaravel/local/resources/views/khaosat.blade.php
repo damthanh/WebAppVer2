@@ -67,7 +67,15 @@
                     </td>Không</td>
                     </tr>
                     <br>
-                    
+                    Bạn muốn làm việc ở vị trí nào?
+                    <br>
+                    <input type="text" name="answer4">
+                    <br>
+                    Bạn mong muốn làm việc công ty nào?
+                    <br>
+                    <input type="text" name="answer5">
+                    <br>
+                    <br>
                     
                              
                               <button type="submit" value="Cập nhật" class="btn btn-registerinfor">Trả lời</button>              

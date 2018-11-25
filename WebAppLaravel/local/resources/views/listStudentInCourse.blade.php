@@ -14,8 +14,9 @@
 
 @section('content')
 <div class="col-md-10 registerinfor-sec">
-    <h1 class="text-center">Danh sách sinh viên cùng lớp</h1>
-    <table class="table table-striped table-bordered table-hover" id="dataTables-example" width="1000px" style="height:500px; overflow:scroll;">                 
+    
+    <h1 class="text-center">Danh sách sinh viên cùng khóa</h1>
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example"  style="height:100px; overflow:scroll;">                 
                         <tr>
                             
                         </tr>
@@ -30,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($lop as $row)
+                        @foreach($khoa as $row)
                         <tr class="odd gradeX" align="center">
                             <td >{{$row->hoten}}</td>
                             <td >{{$row->tenlop}}</td>
@@ -44,7 +45,6 @@
 
                         </tbody>
     </table>
-    
  </div>
 @stop 
 

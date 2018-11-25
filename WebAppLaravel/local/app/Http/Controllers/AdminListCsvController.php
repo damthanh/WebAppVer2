@@ -118,7 +118,22 @@ class AdminListCsvController extends Controller
                 case 'deleteall':
                     Csv::query()->delete();
                     Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>3,'time'=>Carbon::now(),'action'=>'Xoa thong tin cua tat ca cuu sinh vien']);
-                    $request->session()->flash('status','Xóa thông tin của tất cả cựu sinh viên thành công ');      
+                    $request->session()->flash('status','Xóa thông tin của tất cả cựu sinh viên thành công ');  
+                    break;
+                case 'search':
+                    $hoten=$request->input('name');
+                    $ngaysinh=$request->input('born');
+                    $quequan=$request->input('hometown');
+                    $sdt=$request->input('phone');
+                    $user_id=$request->input('newuser_id');
+                    $khoahoc_id=$request->input('course_id');
+                    $lop_id=$request->input('class_id'); 
+                      
+                    $user=User::all();
+                    $csv=Csv::where('hoten','like',"%$hoten%")->where('ngaysinh','like',"%$ngaysinh%")->where('quequan','like',"%$quequan%")->where('sdt','like',"%$sdt%")->where('khoahoc_id','like',"%$khoahoc_id%")->where('lop_id','like',"%$lop_id%")->get();  
+                    $khoahoc=Khoahoc::all();
+                    $lop=Lop::all(); 
+                    return view('admin.adminListCsv',['csv'=>$csv,'user'=>$user,'khoahoc'=>$khoahoc,'lop'=>$lop]);    
             }
         }
         return redirect('admin/listCsv');

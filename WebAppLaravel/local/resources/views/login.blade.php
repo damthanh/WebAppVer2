@@ -9,7 +9,7 @@
 <div class="container">
 <div class="row">	
 <div class="col-md-4 login-sec" >
-					<h1 class="text-center">Login</h1>
+					<h1 class="text-center">Đăng nhập</h1>
 					<br>
 					<form class="login-form" action="" method="post">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -37,12 +37,12 @@
 						</div>
 						 
 						<div class="form-check">
-							<button type="submit"  margin-top=0px class="btn btn-login float-right">Sign In</button>
+							<button type="submit"  margin-top=0px class="btn btn-login float-right">Đăng nhập </button>
 						</div>
 					</form>
 					<div>
 					<!-- <a id="fogot_password_link" href="">Fogot Password ?</a> -->
-					<a href="register"><button type="button" class="btn btn-login" >Sign Up</button></a>
+					<a href="register"><button type="button" class="btn btn-login" >Đăng kí</button></a>
 					</div>
     </div>
 	<div class="col-md-8 banner-sec">

@@ -26,7 +26,7 @@ class AdminListClassController extends Controller
         }
     }
 
-    public function postListUser(Request $request){
+    public function postListClass(Request $request){
         if($request->has('btn')){
             $btn=$request->input('btn');
             switch($btn){

@@ -29,7 +29,7 @@
                                 </select>
                             </td>
                             <td>
-                            <a href='coquan'><button type="button" value="" class="btn btn-registerinfor">Thêm tài khoản mới</button> </a> 
+                            <a href='listUser'><button type="button" value="" class="btn btn-registerinfor">Thêm tài khoản mới</button> </a> 
                             </td>
                         </tr>
                         <tr >
@@ -68,7 +68,8 @@
                         <tr>
                         <td colspan="4" style="text-align:right">
                                 
-                                <button type="submit" name="btn" value="insert" class="btn btn-registerinfor">Thêm</button>              
+                                <button type="submit" name="btn" value="insert" class="btn btn-registerinfor">Thêm</button>
+                                <button type="submit" name="btn" value="search" class="btn btn-registerinfor">Tìm kiếm</button>                
                                 
                         </td>
                         </tr>

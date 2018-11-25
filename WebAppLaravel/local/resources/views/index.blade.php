@@ -53,6 +53,7 @@
                     <span class="sr-only">Next</span>
                 </a>
     </div>
+    @if(Auth::check())
     @if(isset($thongbao))
         <h1 class="text-center">Thông báo</h1>
         <table class="table table-striped table-bordered table-hover" id="dataTables-example" width="1000px"> 
@@ -69,6 +70,7 @@
                 @endforeach
             </tbody>
         </table>
+    @endif
     @endif
 @stop
 

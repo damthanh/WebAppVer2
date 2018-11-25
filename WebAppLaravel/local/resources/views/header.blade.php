@@ -4,9 +4,16 @@
             <div class="topleftmenu" style="width:1300px;">
                 <a target="_top" href="home">Trang chủ</a>
                 <span class="infoBox" id="information">
-                    <a class="info-choose" id="information-choose" target="_top" href="information">Hồ sơ cá nhân</a>
+                    <a class="info-choose" id="information-choose" target="_top" href="information">Hồ sơ </a>
                 </span>
-                <a target="_top" href="listStudent">Kết nối cựu sinh viên</a>
+                <a class="dropdown" style="text-align:center">
+                    <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kết nối cựu sinh viên<span class="caret"></span></a>
+                    <ul class="dropdown-menu" style="background-color: #268dc9">
+                        <li><a href="listStudent" >Cùng lớp</a></li>
+                        <li><a  href="listStudent2">Cùng khóa</a> </li> 
+                        <li><a  href="searchStudent">Tìm kiếm</a> </li> 
+                    </ul>
+                </a>
                 <a target="_top" href="work">Quá trình công tác</a>
                 <a target="_top" href="khaosat">Khảo sát</a>
                 <a target="_top" href="history">Lịch sử </a>
@@ -14,7 +21,7 @@
             
           
                 @if(Auth::check())
-              
+                <div class="toprightmenu">
                 <a class="dropdown" style="text-align:center">
                     <a target="_top" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Auth::user()->email}}<span class="caret"></span></a>
                     <ul class="dropdown-menu" style="background-color: #268dc9">
@@ -23,7 +30,7 @@
                     </ul>
                 
                 </a>
-               
+                </div>
                 @else
                 <a target="_top" href="login">Đăng nhập</a>
                 <a target=_top href="register">Đăng kí</a>

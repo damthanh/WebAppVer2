@@ -79,7 +79,7 @@
                             <td>{{$row->created_at}}</td>
                             <td>{{$row->updated_at}}</td>
                             <td>
-                            <select name="user_id{{$row->id}}">
+                            <select name="user_lv{{$row->id}}">
                             @if($row->user_lv==1)
                             <option value="1" selected="true">Quản trị</option>
                             <option value="2">Người dùng</option>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 22, 2018 at 04:33 PM
+-- Generation Time: Dec 03, 2018 at 12:10 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -47,16 +47,17 @@ CREATE TABLE `congtac` (
 
 INSERT INTO `congtac` (`id`, `csv_id`, `thoigian`, `coquan_id`, `vitri`, `mucluong`, `updated_at`) VALUES
 (1, 1, '2018', 1, 'fresher', '100', '2018-11-15 05:35:12'),
-(3, 2, '1/2018-7/2018', 3, 'manager', '10000', '2018-11-15 11:29:31'),
+(3, 2, '1/2018-7/2018', 3, 'fresher', '10000', '2018-11-26 00:43:59'),
 (4, 2, '7/2018-nay', 1, 'manager', '10000', '2018-11-15 13:28:03'),
 (5, 4, '12/2017-6/2018', 1, 'fresher', '1500', '2018-11-22 13:26:27'),
-(6, 2, '2017', 2, 'senior', '1200', '2018-11-18 03:26:46'),
+(6, 2, '2017', 2, 'senior', '4000', '2018-11-25 17:04:54'),
 (7, 1, '6/2018-nay', 2, 'senior', '2000', '2018-11-19 11:52:18'),
 (8, 3, '2017', 3, 'fresher', '500', '2018-11-19 12:01:24'),
 (9, 3, '2018', 5, 'senior', '1600', '2018-11-19 12:01:54'),
 (10, 5, '3/2017-3/2018', 6, 'fresher', '500', '2018-11-22 13:23:39'),
 (11, 5, '5/2018-nay', 2, 'senior', '3500', '2018-11-19 12:29:37'),
-(12, 4, '2018', 7, 'fresher', '3050', '2018-11-22 13:26:02');
+(12, 4, '2018', 7, 'fresher', '3050', '2018-11-22 13:26:02'),
+(13, 2, '2018', 5, 'senior', '2500', '2018-11-26 00:44:30');
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ INSERT INTO `coquan` (`id`, `ten`, `diachi`, `loaihinh`, `updated_at`) VALUES
 (5, 'CMC Telecom', 'Ha Noi', 'Tu nhan', '2018-11-20 03:27:44'),
 (6, 'Infore', 'Ha Noi', 'Tu nhan', '2018-11-20 03:27:44'),
 (7, 'Google', 'America', 'Nuoc ngoai', '2018-11-20 03:27:44'),
-(8, 'Facebook', 'USA', 'Nuoc ngoai', '2018-11-20 03:27:44');
+(8, 'Facebook', 'USA', 'Nuoc ngoai', '2018-11-20 03:27:44'),
+(9, 'VNPT', 'Ha Noi', 'Nha nuoc', '2018-11-25 17:04:12');
 
 -- --------------------------------------------------------
 
@@ -177,7 +179,14 @@ CREATE TABLE `khaosat` (
 INSERT INTO `khaosat` (`cauhoi`, `cautraloi`) VALUES
 ('Cong viec hien tai cua ban co dung voi dinh huong cua ban khong?', 'Co'),
 ('Ban co hai long voi cong viec hien tai khong?', 'Co'),
-('Ban co thich cong viec hien tai khong?', 'Co');
+('Ban co thich cong viec hien tai khong?', 'Co'),
+('Ban muon lam viec o vi tri nao?', 'manager'),
+('Ban mong muon lam viec o cong ty nao?', 'Google'),
+('Cong viec hien tai cua ban co dung voi dinh huong cua ban khong?', 'Co'),
+('Ban co hai long voi cong viec hien tai khong?', 'Co'),
+('Ban co thich cong viec hien tai khong?', 'Co'),
+('Ban muon lam viec o vi tri nao?', 'senior'),
+('Ban mong muon lam viec o cong ty nao?', 'Facebook');
 
 -- --------------------------------------------------------
 
@@ -198,7 +207,8 @@ CREATE TABLE `khoahoc` (
 
 INSERT INTO `khoahoc` (`id`, `tenkhoahoc`, `ghichu`, `updated_at`) VALUES
 (1, 'K59', '2014-2018', '2018-11-21 13:47:45'),
-(2, 'K60', '2015-2019', '2018-11-21 13:47:57');
+(2, 'K60', '2015-2019', '2018-11-21 13:47:57'),
+(3, 'K58', '2013-2017', '2018-11-25 17:09:48');
 
 -- --------------------------------------------------------
 
@@ -219,7 +229,6 @@ CREATE TABLE `lichsu` (
 --
 
 INSERT INTO `lichsu` (`id`, `user_id`, `function_id`, `time`, `action`) VALUES
-(1, 9, 1, '2018-11-15 03:34:19', 'Them thong tin ca nhan'),
 (2, 9, 1, '2018-11-15 05:12:16', 'Them thong tin ca nhan'),
 (3, 9, 2, '2018-11-15 05:33:54', 'Cap nhat thong tin ca nhan'),
 (4, 4, 1, '2018-11-15 11:29:59', 'Them noi cong tac'),
@@ -227,42 +236,8 @@ INSERT INTO `lichsu` (`id`, `user_id`, `function_id`, `time`, `action`) VALUES
 (6, 4, 2, '2018-11-15 13:24:00', 'Sua noi cong tac'),
 (7, 4, 2, '2018-11-15 13:28:03', 'Sua noi cong tac'),
 (8, 12, 1, '2018-11-15 15:58:47', 'dang ki tai khoan thanh cong'),
-(9, 12, 1, '2018-11-15 15:59:57', 'Them thong tin ca nhan'),
 (10, 12, 1, '2018-11-15 16:07:42', 'Them noi cong tac'),
 (11, 4, 2, '2018-11-15 16:12:39', 'Sua noi cong tac'),
-(12, 4, 2, '2018-11-16 08:27:25', 'Cap nhat thong tin ca nhan'),
-(13, 4, 2, '2018-11-16 08:27:32', 'Cap nhat thong tin ca nhan'),
-(14, 4, 2, '2018-11-16 08:27:34', 'Cap nhat thong tin ca nhan'),
-(15, 4, 2, '2018-11-16 08:27:36', 'Cap nhat thong tin ca nhan'),
-(16, 4, 2, '2018-11-16 08:27:37', 'Cap nhat thong tin ca nhan'),
-(17, 4, 2, '2018-11-16 08:27:38', 'Cap nhat thong tin ca nhan'),
-(18, 4, 2, '2018-11-16 08:27:39', 'Cap nhat thong tin ca nhan'),
-(19, 4, 2, '2018-11-16 08:27:39', 'Cap nhat thong tin ca nhan'),
-(20, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
-(21, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
-(22, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
-(23, 4, 2, '2018-11-16 08:27:40', 'Cap nhat thong tin ca nhan'),
-(24, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
-(25, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
-(26, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
-(27, 4, 2, '2018-11-16 08:27:41', 'Cap nhat thong tin ca nhan'),
-(28, 4, 2, '2018-11-16 08:27:49', 'Cap nhat thong tin ca nhan'),
-(29, 4, 2, '2018-11-16 08:33:30', 'Cap nhat thong tin ca nhan'),
-(30, 4, 2, '2018-11-16 08:33:32', 'Cap nhat thong tin ca nhan'),
-(31, 4, 2, '2018-11-16 08:33:32', 'Cap nhat thong tin ca nhan'),
-(32, 4, 2, '2018-11-16 08:33:33', 'Cap nhat thong tin ca nhan'),
-(33, 4, 2, '2018-11-16 08:33:33', 'Cap nhat thong tin ca nhan'),
-(34, 4, 2, '2018-11-16 08:33:33', 'Cap nhat thong tin ca nhan'),
-(35, 4, 2, '2018-11-16 08:33:35', 'Cap nhat thong tin ca nhan'),
-(36, 4, 2, '2018-11-16 08:33:36', 'Cap nhat thong tin ca nhan'),
-(37, 4, 2, '2018-11-16 08:33:42', 'Cap nhat thong tin ca nhan'),
-(38, 4, 2, '2018-11-16 08:33:44', 'Cap nhat thong tin ca nhan'),
-(39, 4, 2, '2018-11-16 08:33:49', 'Cap nhat thong tin ca nhan'),
-(40, 4, 2, '2018-11-16 08:33:49', 'Cap nhat thong tin ca nhan'),
-(41, 4, 2, '2018-11-16 08:34:00', 'Cap nhat thong tin ca nhan'),
-(42, 4, 2, '2018-11-16 08:35:35', 'Cap nhat thong tin ca nhan'),
-(43, 4, 2, '2018-11-16 08:35:37', 'Cap nhat thong tin ca nhan'),
-(44, 4, 2, '2018-11-16 10:07:05', 'Cap nhat thong tin ca nhan'),
 (45, 4, 2, '2018-11-16 10:07:38', 'Cap nhat thong tin ca nhan'),
 (46, 4, 1, '2018-11-17 15:57:58', 'Them co quan moi'),
 (47, 4, 3, '2018-11-17 16:03:29', 'Xoa noi cong tac'),
@@ -274,8 +249,6 @@ INSERT INTO `lichsu` (`id`, `user_id`, `function_id`, `time`, `action`) VALUES
 (53, 4, 2, '2018-11-18 03:26:46', 'Sua noi cong tac'),
 (54, 4, 1, '2018-11-18 10:40:30', 'Them co quan moi'),
 (55, 4, 2, '2018-11-18 10:41:58', 'Doi mat khau'),
-(56, 4, 1, '2018-11-18 13:39:43', 'Tra loi cau hoi khao sat'),
-(57, 4, 1, '2018-11-18 13:40:16', 'Tra loi cau hoi khao sat'),
 (58, 13, 1, '2018-11-19 00:14:53', 'Dang ki tai khoan thanh cong'),
 (59, 13, 1, '2018-11-19 00:16:09', 'Them thong tin ca nhan'),
 (60, 14, 1, '2018-11-19 00:53:15', 'Dang ki tai khoan thanh cong'),
@@ -306,7 +279,29 @@ INSERT INTO `lichsu` (`id`, `user_id`, `function_id`, `time`, `action`) VALUES
 (85, 1, 3, '2018-11-22 12:54:47', 'Xoa toan bo thong bao'),
 (86, 1, 2, '2018-11-22 13:23:39', 'Sua thong tin noi cong tac'),
 (87, 1, 1, '2018-11-22 13:26:02', 'Them khoa noi cong tac moi'),
-(88, 1, 2, '2018-11-22 13:26:27', 'Sua thong tin noi cong tac');
+(88, 1, 2, '2018-11-22 13:26:27', 'Sua thong tin noi cong tac'),
+(89, 1, 1, '2018-11-25 10:52:55', 'Sua thong tin tai khoan'),
+(90, 1, 1, '2018-11-25 10:53:04', 'Sua thong tin tai khoan'),
+(92, 4, 1, '2018-11-25 15:41:34', 'Tra loi cau hoi khao sat'),
+(93, 1, 1, '2018-11-25 17:02:47', 'Them tai khoan moi'),
+(94, 1, 1, '2018-11-25 17:04:12', 'Them co quan moi'),
+(95, 1, 2, '2018-11-25 17:04:54', 'Sua thong tin noi cong tac'),
+(96, 1, 1, '2018-11-25 17:07:00', 'Them khoa hoc moi'),
+(97, 1, 1, '2018-11-25 17:09:07', 'Them lop moi'),
+(98, 1, 2, '2018-11-25 17:09:18', 'Sua thong tin lop'),
+(99, 1, 2, '2018-11-25 17:09:39', 'Sua thong tin khoa hoc'),
+(100, 1, 2, '2018-11-25 17:09:48', 'Sua thong tin khoa hoc'),
+(101, 1, 1, '2018-11-25 17:13:52', 'Them thong bao moi'),
+(102, 1, 2, '2018-11-25 17:14:08', 'Sua thong tin thong bao'),
+(103, 1, 1, '2018-11-26 00:16:01', 'Sua thong tin tai khoan'),
+(104, 1, 1, '2018-11-26 00:16:12', 'Sua thong tin tai khoan'),
+(105, 2, 2, '2018-11-26 00:31:03', 'Doi mat khau'),
+(106, 4, 2, '2018-11-26 00:43:59', 'Sua noi cong tac'),
+(108, 4, 1, '2018-11-26 00:45:10', 'Tra loi cau hoi khao sat'),
+(109, 1, 1, '2018-12-03 10:24:55', 'Them thong tin sinh vien'),
+(110, 1, 3, '2018-12-03 10:25:02', 'Xoa thong tin cua sinh vien'),
+(115, 1, 3, '2018-12-03 11:01:08', 'Xoa thong lich su nguoi dung'),
+(116, 1, 3, '2018-12-03 11:03:09', 'Xoa thong lich su nguoi dung');
 
 -- --------------------------------------------------------
 
@@ -331,7 +326,8 @@ INSERT INTO `lop` (`id`, `tenlop`, `khoahoc_id`, `updated_at`) VALUES
 (3, 'K59CD', 1, '2018-11-20 03:28:51'),
 (4, 'K60CB', 2, '2018-11-20 03:28:51'),
 (5, 'K60CC', 2, '2018-11-20 03:28:51'),
-(6, 'K60CD', 2, '2018-11-20 03:28:51');
+(6, 'K60CD', 2, '2018-11-20 03:28:51'),
+(7, 'K58CC', 3, '2018-11-25 17:09:18');
 
 -- --------------------------------------------------------
 
@@ -400,6 +396,13 @@ CREATE TABLE `thongbao` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `thongbao`
+--
+
+INSERT INTO `thongbao` (`id`, `thongtin`, `updated_at`) VALUES
+(1, 'Từ ngày 30/11-10/12, đề nghị tất cả cựu sinh viên khóa K58 đến phòng đào tạo để nhận bằng tốt nghiệp, hết thời hạn nhà trường sẽ không giải quyết vấn đề này nữa!', '2018-11-25 17:14:08');
+
 -- --------------------------------------------------------
 
 --
@@ -424,31 +427,6 @@ INSERT INTO `tinh` (`id`, `tentinh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` mediumtext NOT NULL,
-  `user_lv` int(11) NOT NULL,
-  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `email`, `password`, `user_lv`, `update_time`, `create_time`) VALUES
-(1, 'admin@gmail.com', '12345678', 1, '2018-11-10 13:53:47', '0000-00-00 00:00:00'),
-(2, 'demo1@gmail.com', '12345678', 2, '2018-11-10 13:54:22', '0000-00-00 00:00:00'),
-(3, 'demo2@gmail.com', '12345678', 3, '2018-11-10 13:54:48', '0000-00-00 00:00:00'),
-(4, 'demo3@gmail.com', '12345678', 3, '2018-11-10 14:22:16', '0000-00-00 00:00:00');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -468,16 +446,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `user_lv`) VALUES
-(1, 'Nguyen Minh Tien', 'admin@gmail.com', '12345678', 'LwCj1gbMz8VcCyaixVM5LlRE6bI6d0ZViNiosmnoN1JX16jtZTYQTYkOaP0C', '2018-11-11 12:40:37', '2018-11-22 13:32:30', 1),
-(2, 'demo1', 'demo1@gmail.com', '12345678', 'FevN5xguDkY5aFJHTTMZCv0kkuzU6ArxhisvigL3u67HoQMoR7CZ63NTq0E5', '2018-11-11 12:41:50', '2018-11-19 14:45:32', 2),
+(1, 'Nguyen Minh Tien', 'admin@gmail.com', '12345678', '68oi71EZkY8kfehcTazD8CZe3dV8r0kSJ9NODJLKLYn1n8KvD0LBtifVxFEb', '2018-11-11 12:40:37', '2018-12-03 11:08:08', 1),
+(2, 'demo1', 'demo1@gmail.com', '12345678', 'H5JCNfAqnAMJLQOt4sPXtJS8j7Gg5v01kyNOkpsTtPPXB5XE54PT3VhHoZyw', '2018-11-11 12:41:50', '2018-11-26 00:34:03', 1),
 (3, 'demo2', 'demo2@gmail.com', '12345678', '8aIOiRc2UjKkEoCun4q95yuv5whVpMoaY7IhQiaL1Y8ydUNgspPiFEarlAj6', '2018-11-11 17:00:00', '2018-11-19 14:46:56', 2),
-(4, 'Dam Tien Thanh', 'demo3@gmail.com', '12345678', 'sD4hlnNEflSWrNe5Z2qWd8e81Wd1TDOEG8nF6XBVnyundT6FBmbHkcIIdZCb', '2018-11-11 17:00:00', '2018-11-22 13:20:48', 2),
+(4, 'Dam Tien Thanh', 'demo3@gmail.com', '12345678', 'QM1vUXv4PsVdVZuny7QBbGttGBT8VMe5zatpnMdiFrAZNWZ9AFWMKTCfaVqm', '2018-11-11 17:00:00', '2018-11-26 00:45:40', 2),
 (9, 'Pham Duy Linh', 'demo5@gmail.com', '12345678', 'HSFM5wtaIghCeBLNDEXpXq8nmyxUgrkKZCqdR5vgFDYfxXzMhr3rk2a5AySq', '2018-11-11 17:00:00', '2018-11-19 14:47:07', 2),
 (10, 'demo6', 'demo6@gmail.com', '12345678', NULL, '2018-11-14 09:28:44', '2018-11-19 09:14:37', 2),
-(11, 'Nguyen Minh Tien', 'admin@gmail.com', '12345678', '4LEnzbL0S75FDH6CwYhdpAbTk1Ine5pK8fxYwweNs00d12yV9poMC5l62TpN', '2018-11-14 13:04:55', '2018-11-21 01:19:19', 2),
+(11, 'Nguyen Minh Tien', 'demo7@gmail.com', '12345678', '4LEnzbL0S75FDH6CwYhdpAbTk1Ine5pK8fxYwweNs00d12yV9poMC5l62TpN', '2018-11-14 13:04:55', '2018-11-25 10:52:55', 2),
 (12, 'Nguyen Khanh Linh', 'demo8@gmail.com', '12345678', 'BYbHVRu6oxnN1H2byncJbFYz2EIpp5voMQKPG062GlDJ3gF4M0Wxx3M7pZ6S', '2018-11-15 15:58:47', '2018-11-20 09:29:14', 2),
 (13, 'Nguyen Minh Quang', 'demo9@gmail.com', '12345678', 'DBMR8z2qMXRgCvFpnp41PKSnj2TsxqB6OtMoUtLeeoNIkaRIlVvZXxwUbYPX', '2018-11-19 00:14:53', '2018-11-19 12:35:41', 2),
-(14, 'Nguyen Phuong Linh', '123@gmail.com', '12345678', '3ffO1VbV3WRkb2bTGoVulm8ypJhTuL6mwpZTOSEuMfdDIt8jFHlB2UMZHmi9', '2018-11-19 00:53:15', '2018-11-19 09:13:54', 2);
+(14, 'Nguyen Phuong Linh', '123@gmail.com', '12345678', '3ffO1VbV3WRkb2bTGoVulm8ypJhTuL6mwpZTOSEuMfdDIt8jFHlB2UMZHmi9', '2018-11-19 00:53:15', '2018-11-19 09:13:54', 2),
+(15, 'abc', 'abc@gmail.com', '12345678', NULL, '2018-11-25 17:02:47', '2018-12-03 10:24:55', 2);
 
 -- --------------------------------------------------------
 
@@ -590,12 +569,6 @@ ALTER TABLE `tinh`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -616,19 +589,19 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `congtac`
 --
 ALTER TABLE `congtac`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `coquan`
 --
 ALTER TABLE `coquan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `csv`
 --
 ALTER TABLE `csv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `function`
@@ -646,19 +619,19 @@ ALTER TABLE `huyen`
 -- AUTO_INCREMENT for table `khoahoc`
 --
 ALTER TABLE `khoahoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lichsu`
 --
 ALTER TABLE `lichsu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `lop`
 --
 ALTER TABLE `lop`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -676,19 +649,13 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `thongbao`
 --
 ALTER TABLE `thongbao`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

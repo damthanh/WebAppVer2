@@ -32,10 +32,10 @@ class AdminListClassController extends Controller
             switch($btn){
                 case 'insert':
                     $tenlop=$request->input('tenlop');
-                    $khoahoc_id=$request->input('khoahoc_id');
+                    $khoahoc_id=$request->input('khoahoc');
                    
                     if(isset($tenlop) && isset($khoahoc_id)){
-                        $lop=Khoahoc::where('tenlop','=',$tenlop)->first();
+                        $lop=Lop::where('tenlop','=',$tenlop)->first();
                         if(isset($lop)){
                             $request->session()->flash('err','Lớp học đã tồn tại');
                         } else{
@@ -53,7 +53,7 @@ class AdminListClassController extends Controller
                     }
                     break;
                 case 'edit':
-                    $checkedit=$request->input('edit');
+                    $checkedit=$request->input('checkedit');
                     if(isset($checkedit)){
                         $tenlop=$request->input("tenlop$checkedit");
                         $khoahoc_id=$request->input("khoahoc_id$checkedit");

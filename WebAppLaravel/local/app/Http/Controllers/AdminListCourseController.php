@@ -52,7 +52,7 @@ class AdminListCourseController extends Controller
                     }
                     break;
                 case 'edit':
-                    $checkedit=$request->input('edit');
+                    $checkedit=$request->input('checkedit');
                     if(isset($checkedit)){
                         $tenkhoahoc=$request->input("tenkhoahoc$checkedit");
                         $ghichu=$request->input("ghichu$checkedit");

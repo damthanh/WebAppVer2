@@ -1,21 +1,17 @@
-@extends('master')
+@extends('admin.adminMaster')
 
 @section('title')
     <title> Đổi mật khẩu</title>
 @stop
 
-@section('head')
-    @include('head')
-@stop
-
-@section('header')
-    @include('headerLogin')
-@stop     
 
 @section('content')
 <div class="col-md-5 register-sec">
 @if (session('status'))
         <div class="alert alert-info">{{session('status')}}</div>
+@endif
+@if (session('err'))
+        <div class="alert alert-danger">{{session('err')}}</div>
 @endif
 					<h1 class="text-center">Đổi mật khẩu</h1>
 
@@ -52,9 +48,7 @@
 	</div>
 @stop 
 
-@section('footer')
-    @include('footer')
-@stop
+
 
 @section('script')
 <script>
@@ -66,15 +60,15 @@
 				var repass=$.trim($('#retypenewpass').val());
 				flag=true;
                 if(oldpass!={{Auth::user()->password}}){
-                    $('#oldpasserr').text('{{Auth::user()->password}}');
+                    $('#oldpasserr').text('Mật khẩu cũ không đúng');
                     flag=false;
                 }    
 				if(pass.length<8){
-					$('#passerr').text('Mat khau phai lon hon hoac bang 8 ki tu');
+					$('#passerr').text('Mật khẩu phải lớn hơn hoặc bảng 8 kí tự');
 					flag=false;
 				} 
                 if(repass!=pass){
-					$('#retypepasserr').text('Mat khau nhap lai khong dung');
+					$('#retypepasserr').text('Mật khẩu  nhập lại không đúng');
 					flag=false;
 				} 
 				return flag;

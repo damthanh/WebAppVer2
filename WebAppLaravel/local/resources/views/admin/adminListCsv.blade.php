@@ -51,6 +51,7 @@
                             <td style="width:100px">Khóa học:</td>
                             <td>
                                 <select name="course_id">
+                                    <option value=""></option>
                                     @foreach($khoahoc as $row)
                                         <option value="{{$row->id}}">{{$row->tenkhoahoc}}</option>
                                     @endforeach
@@ -59,6 +60,7 @@
                             <td style="width:100px">Lớp:</td>
                             <td>
                                 <select name="class_id">
+                                    <option value=""></option>
                                     @foreach($lop as $row)
                                         <option value="{{$row->id}}">{{$row->tenlop}}</option>
                                     @endforeach

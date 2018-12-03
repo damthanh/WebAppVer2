@@ -21,12 +21,12 @@
     <table class="tableInformation" align="center">
                         
                         <tr class="form-group" >
-                            <td style="width: 100px;">Tên cơ quan:</td>
+                            <td style="width: 150px;">Tên cơ quan:</td>
                             <td colspan="3"><input type="input" name="name" class="form-control"   style="width:95%" /> </td>
                             
                         </tr>
                         <tr class="form-group" >
-                            <td style="width: 100px;">Địa chỉ (thành phố/tỉnh):</td>
+                            <td style="width: 150px;">Địa chỉ (thành phố/tỉnh):</td>
                             <td ><input type="text" name="diachi" style="width:95%" /> </td>
                             <td>Loại hình:</td>
                             <td>

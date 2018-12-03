@@ -35,7 +35,7 @@ class AdminListNoticeController extends Controller
                     if(isset($thongtin)){
                     
                         Thongbao::insert([
-                            'thongtin'=>$thongbao
+                            'thongtin'=>$thongtin
                                     
                         ]);    
                         Lichsu::insert(['user_id'=>Auth::user()->id,'function_id'=>1,'time'=>Carbon::now(),'action'=>'Them thong bao moi']);
@@ -46,7 +46,7 @@ class AdminListNoticeController extends Controller
                     }
                     break;
                 case 'edit':
-                    $checkedit=$request->input('edit');
+                    $checkedit=$request->input('checkedit');
                     if(isset($checkedit)){
                         $thongtin=$request->input("thongbao$checkedit");
                         

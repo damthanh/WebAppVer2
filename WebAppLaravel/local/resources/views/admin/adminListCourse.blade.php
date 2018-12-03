@@ -27,7 +27,7 @@
                         </tr>
                         <tr class="form-group" >
                             <td style="width: 100px;">Ghi chú:</td>
-                            <td ><input type="text" name="password" style="width:95%" /> </td>
+                            <td ><input type="text" name="ghichu" style="width:95%" /> </td>
                             
                         
                         <tr>

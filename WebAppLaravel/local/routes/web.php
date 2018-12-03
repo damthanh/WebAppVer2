@@ -108,4 +108,10 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('listSurvey','AdminListSurveyController@getListSurvey');
 
     Route::get('listHistory','AdminListHistoryController@getListHistory');
+
+    Route::post('listHistory','AdminListHistoryController@postListHistory');
+
+    Route::get('changePass','AdminChangePassController@getChangePass');
+
+    Route::post('changePass','AdminChangePassController@postChangePass');    
 });
